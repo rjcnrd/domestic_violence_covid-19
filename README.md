@@ -15,7 +15,7 @@ pip3 install -r requirements.txt
 
 Launch the dash app 
 ```
-python app.py
+python3 app.py
 ```
 Open http://127.0.0.1:8050/ in your browser to see the app.
 
