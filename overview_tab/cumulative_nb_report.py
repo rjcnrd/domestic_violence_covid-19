@@ -9,6 +9,7 @@ def data_processing_cumulative(df):
     :param df: data of the number of reports
     :return: a pandas data frame with the cumulative number of report per day
     """
+    df.date_of_report = pd.to_datetime(df.date_of_report)
     data = pd.DataFrame(df.groupby("date_of_report")["first_time_exprience"].count().cumsum())
     data = data.rename(columns={"first_time_exprience": "cumulative_number_of_reports"}).reset_index()
     return data
