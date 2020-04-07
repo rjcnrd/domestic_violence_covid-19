@@ -45,9 +45,8 @@ def create_layout():
                 create_overview_tab(df, postal_code)],
                 style=TAB_STYLE,
                 selected_style=SELECTED_STYLE),
-
             dcc.Tab(label='STATISTICS', children=[
-                create_statistics_tab()
+                create_statistics_tab(df)
             ], style=TAB_STYLE,
                 selected_style=SELECTED_STYLE),
             dcc.Tab(label='TESTIMONIALS', children=[
