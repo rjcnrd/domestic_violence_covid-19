@@ -2,9 +2,16 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 
+import pandas as pd
+
 from overview_tab.overview import create_overview_tab
 from statistics_tab.statistics import create_statistics_tab
 from testimonials_tab.testimonials import create_testimonials_tab
+
+#DATA IN - dummy for now
+df = pd.read_csv(
+    "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/dummy-data.csv")
+
 
 TAB_STYLE = {
     'font-family': 'Arial, Helvetica, sans-serif',
@@ -37,9 +44,8 @@ def create_layout():
                 create_overview_tab()],
                 style=TAB_STYLE,
                 selected_style=SELECTED_STYLE),
-
             dcc.Tab(label='STATISTICS', children=[
-                create_statistics_tab()
+                create_statistics_tab(df)
             ], style=TAB_STYLE,
                 selected_style=SELECTED_STYLE),
             dcc.Tab(label='TESTIMONIALS', children=[
