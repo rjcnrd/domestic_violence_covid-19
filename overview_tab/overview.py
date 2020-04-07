@@ -1,16 +1,8 @@
-import dash
 import dash_core_components as dcc
-import dash_html_components as html
+from overview_tab.map_graph import  map_graph
 
 
-def create_overview_tab():
+def create_overview_tab(df, postal_code_df):
     dcc.Graph(
-        figure={
-            'data': [
-                {'x': [1, 2, 3], 'y': [4, 1, 2],
-                 'type': 'bar', 'name': 'SF'},
-                {'x': [1, 2, 3], 'y': [2, 4, 5],
-                 'type': 'bar', 'name': u'Montréal'},
-            ]
-        }
+        figure= map_graph(df, postal_code_df)
     )
