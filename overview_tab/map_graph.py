@@ -33,6 +33,8 @@ def map_graph(df, postal_code_df):
                             hover_name="first_time_exprience")
 
     fig.update_layout(mapbox_style="carto-positron",
+                      paper_bgcolor='rgba(0,0,0,0)',
+                      plot_bgcolor='rgba(0,0,0,0)',
                       mapbox= dict(center=go.layout.mapbox.Center(lat=54.237933, lon=-2.36967)))
 
     return fig
