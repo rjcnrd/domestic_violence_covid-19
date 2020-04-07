@@ -13,6 +13,9 @@ df = pd.read_csv(
 #DATA Postal Code - in the git for now
 postal_code = pd.read_csv("ukpostcodes.csv")
 
+#Threshold for plotting the data in the graph
+map_threshold = 2
+
 TAB_STYLE = {
     'font-family': 'Arial, Helvetica, sans-serif',
     'font-size': '3vw',
@@ -41,7 +44,7 @@ def create_layout():
 
         dcc.Tabs(className="tabs", children=[
             dcc.Tab(label='OVERVIEW', children=[
-                create_overview_tab(df, postal_code)],
+                create_overview_tab(df, postal_code, map_threshold)],
                 style=TAB_STYLE,
                 selected_style=SELECTED_STYLE),
             dcc.Tab(label='STATISTICS', children=[

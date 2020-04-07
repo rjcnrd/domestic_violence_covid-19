@@ -4,25 +4,26 @@ import plotly.graph_objects as go
 
 FAMILY = "PT Sans"
 
-def data_processing_for_graph(df, postal_code_df):
+def data_processing_for_graph(df, postal_code_df, threshold):
     """
     :param postal_code_df: data frame that includes the postal codes, the latitude and the longitude
-    :param df: agression data
-    :return: a dataframe with one row per postal code as index, with latitude, longitude and number of agressions
+    :param df: survey data
+    :return: a dataframe with one row per postal code as index, with latitude, longitude and number of incidents
     """
     data = pd.DataFrame(df.groupby("postal_code")["first_time_exprience"].count())
     data = data.rename(columns = {"first_time_exprience" : "count_incidents"})
+    data = data[data.count_incidents > threshold]
     data = data.merge(postal_code_df, left_index=True, right_on="postcode", how="left")
     return data
 
 
-def map_graph(df, postal_code_df):
+def map_graph(df, postal_code_df, threshold):
     """
     :param df: dummy data
     :param postal_code_df: postal code data frame
     :return: map of UK with the number of agressions
     """
-    data = data_processing_for_graph(df, postal_code_df)
+    data = data_processing_for_graph(df, postal_code_df, threshold)
     fig = px.scatter_mapbox(data,
                             lat="latitude",
                             lon="longitude",
