@@ -6,7 +6,7 @@ FAMILY = "PT Sans"
 
 def data_processing_cumulative(survey_df):
     """
-    :param survey_df: data of the number of reports. Using the date of report and the first_time_experience (byt only for the groupby, could be another column)
+    :param survey_df: data of the number of reports. Using the date of report and the first_time_experience (but only for the groupby, could be another column)
     :return: a pandas data frame with the cumulative number of report per day
     """
     survey_df.date_of_report = pd.to_datetime(survey_df.date_of_report, format='%d/%m/%Y %I:%M %p')
