@@ -41,5 +41,6 @@ def map_graph(survey_df, postal_code_df, map_threshold):
                       paper_bgcolor='rgba(0,0,0,0)',
                       plot_bgcolor='rgba(0,0,0,0)',
                       mapbox=dict(center=go.layout.mapbox.Center(lat=54.237933, lon=-2.36967)))
+  
 
     return fig
