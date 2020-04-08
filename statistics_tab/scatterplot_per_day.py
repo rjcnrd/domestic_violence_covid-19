@@ -29,7 +29,7 @@ def draw_scatterplot_per_day(df):
     figure = go.Figure(data=go.Scatter(
         x=df.date_of_report,
         y=df.ranking,
-           hovertemplate=
+        hovertemplate=
         "%{text}" +
         "<extra></extra>",
         text=df.written_report,
