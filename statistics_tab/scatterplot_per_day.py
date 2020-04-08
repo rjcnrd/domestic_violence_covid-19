@@ -44,8 +44,8 @@ def draw_scatterplot_per_day(df):
 
     ),
         layout=dict(
-        paper_bgcolor="#00a0dd",
-        plot_bgcolor="#00a0dd",
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
         xaxis=dict(
             color="white",
             showgrid=False),
