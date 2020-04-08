@@ -1,5 +1,7 @@
 import dash_core_components as dcc
 import dash_html_components as html
+import dash_bootstrap_components as dbc
+
 import pandas as pd
 
 from overview_tab.overview import create_overview_tab
@@ -42,18 +44,25 @@ def create_layout():
         ]),
 
         dcc.Tabs(className="tabs", children=[
+
             dcc.Tab(label='OVERVIEW', children=[
-                create_overview_tab(survey_df, postal_code_df, map_threshold)],
+                dbc.Container(
+                    create_overview_tab(survey_df, postal_code_df, map_threshold))
+            ],
                 style=TAB_STYLE,
                 selected_style=SELECTED_STYLE),
-            dcc.Tab(label='STATISTICS', children=
-                create_statistics_tab(survey_df)
-            , style=TAB_STYLE,
-                selected_style=SELECTED_STYLE),
-            dcc.Tab(label='TESTIMONIALS', children=[
-                create_testimonials_tab()
-            ], style=TAB_STYLE,
-                selected_style=SELECTED_STYLE),
+
+            dcc.Tab(label='STATISTICS', 
+                    children=dbc.Container(create_statistics_tab(survey_df)), 
+                    style=TAB_STYLE,
+                    selected_style=SELECTED_STYLE),
+
+            dcc.Tab(label='TESTIMONIALS', 
+            children=[
+                dbc.Container(create_testimonials_tab())
+                ], 
+            style=TAB_STYLE,
+            selected_style=SELECTED_STYLE),
         ])
     ])
     return layout

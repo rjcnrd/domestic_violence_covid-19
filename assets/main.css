@@ -1,7 +1,8 @@
 /* CSS RULES FOR HTML TAGS */
 body {
     font-family: sans-serif;
-    background-color: #00a0dd;
+    /* background-color: #00a0dd; */
+    background-color:#98c1d2
 }
 h1, h2, h3, h4, h5, h6 {
     font-family:  'BUKA','Alergia Regular',sans-serif;

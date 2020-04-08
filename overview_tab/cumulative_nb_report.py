@@ -27,8 +27,9 @@ def cumulative_graph(survey_df):
     fig = px.area(data,
                   x="date_of_report_day",
                   y="cumulative_number_of_reports", color_discrete_sequence=["white"],
-                  width=600,  # width of the graph
-                  height=300)  # height of the graph
+                  #width=600,  # width of the graph
+                  #height=300
+                   )  # height of the graph
 
     fig.update_layout(paper_bgcolor="#00a0dd",
                       plot_bgcolor='rgba(0,0,0,0)',
