@@ -45,22 +45,25 @@ def create_layout():
         ]),
 
         dcc.Tabs(className="tabs", children=[
+
             dcc.Tab(label='OVERVIEW', children=[
                 dbc.Container(
-                create_overview_tab(survey_df, postal_code_df, map_threshold))
-                ],
+                    create_overview_tab(survey_df, postal_code_df, map_threshold))
+            ],
                 style=TAB_STYLE,
                 selected_style=SELECTED_STYLE),
-            dcc.Tab(label='STATISTICS', children=
-            dbc.Container(create_statistics_tab(survey_df))
-            , style=TAB_STYLE,
-                selected_style=SELECTED_STYLE),
-            dcc.Tab(label='TESTIMONIALS', children=[
-                dbc.Container(create_testimonials_tab()
-                )
-                
-            ], style=TAB_STYLE,
-                selected_style=SELECTED_STYLE),
+
+            dcc.Tab(label='STATISTICS', 
+                    children=dbc.Container(create_statistics_tab(survey_df)), 
+                    style=TAB_STYLE,
+                    selected_style=SELECTED_STYLE),
+
+            dcc.Tab(label='TESTIMONIALS', 
+            children=[
+                dbc.Container(create_testimonials_tab())
+                ], 
+            style=TAB_STYLE,
+            selected_style=SELECTED_STYLE),
         ])
     ])
     return layout

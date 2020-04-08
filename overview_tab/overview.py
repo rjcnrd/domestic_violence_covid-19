@@ -7,9 +7,7 @@ from overview_tab.cumulative_nb_report import cumulative_graph
 
 
 def create_overview_tab(df, postal_code_df, map_threshold):
-    tab_content = html.Div(
-        [
-            dbc.Row([
+    tab_content = dbc.Row([
                 #Column 1: Left Side
                 dbc.Col([
                     html.Div(children=
@@ -29,8 +27,7 @@ def create_overview_tab(df, postal_code_df, map_threshold):
                     html.Div([dcc.Graph(figure=cumulative_graph(df))
                     ])
                 ],width=6)
-            ]),
+            ])
         
-        ])
 
     return tab_content
