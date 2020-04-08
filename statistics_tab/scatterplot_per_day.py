@@ -14,9 +14,10 @@ def add_ranking(survey_df):
     """
     df_new = survey_df
     df_new.date_of_report = pd.to_datetime(df_new.date_of_report, format='%d/%m/%Y %I:%M %p')
-    df_new["date_of_report_day"] = df_new.date_of_report.dt.strftime('%d/%m/%Y')
+    df_new["date_of_report_day"] = df_new.date_of_report.dt.strftime('%Y/%m/%d')
     df_new["row_number"] = np.arange(len(df_new))
     df_new["ranking"] = df_new.groupby(df_new.date_of_report.dt.floor("d"))["row_number"].rank(ascending=True)
+    df_new.date_of_report_day = pd.to_datetime(df_new.date_of_report_day)
     return df_new
 
 
