@@ -32,11 +32,6 @@ def cumulative_graph(df):
                       xaxis=dict(color="white", showgrid=False),
                       xaxis_title="Date",
                       yaxis_title="",
-                      yaxis=dict(color="white", showgrid=False),
-                      title=dict(text="Cumulative number of incidents reported",
-                                 x=0.5,
-                                 font=dict(family=FAMILY,
-                                           color="white",
-                                           size=24)))
+                      yaxis=dict(color="white", showgrid=False))
 
     return fig

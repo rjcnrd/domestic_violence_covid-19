@@ -40,11 +40,6 @@ def map_graph(df, postal_code_df, map_threshold):
     fig.update_layout(mapbox_style="carto-positron",  # Chooses the type of map in the background
                       paper_bgcolor='rgba(0,0,0,0)',
                       plot_bgcolor='rgba(0,0,0,0)',
-                      title=dict(text="Number of incidents reported per postal code",
-                                 x=0.5,
-                                 font=dict(family=FAMILY,
-                                           color="white",
-                                           size=24)),
                       mapbox=dict(center=go.layout.mapbox.Center(lat=54.237933, lon=-2.36967)))
 
     return fig
