@@ -16,7 +16,7 @@ def create_overview_tab(df, postal_code_df, map_threshold):
             html.Div([
                 dcc.Graph(figure=map_graph(
                     df, postal_code_df, map_threshold))
-            ])], width=6
+            ])], md=6
         ),
         #Column 2: Right Side
         dbc.Col([
@@ -25,7 +25,7 @@ def create_overview_tab(df, postal_code_df, map_threshold):
                     ),
             html.Div([dcc.Graph(figure=cumulative_graph(df))
                       ])
-        ], width=6)
+        ], md=6)
     ])
 
     return tab_content
