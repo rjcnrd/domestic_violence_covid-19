@@ -12,7 +12,9 @@ external_stylesheets = [dbc.themes.LUX]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-app.layout = create_layout()
+app.layout = dbc.Container(
+    create_layout()
+    )
 
 if __name__ == '__main__':
     app.run_server(debug=True)
