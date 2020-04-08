@@ -17,22 +17,37 @@ postal_code_df = pd.read_csv("ukpostcodes.csv")
 #Threshold for plotting the data in the graph
 map_threshold = 2
 
+#TAB STYLE IS EQUAL  to H3 in default style 
 TAB_STYLE = {
-    'font-family': 'Arial, Helvetica, sans-serif',
-    'font-size': '3vw',
     'background': '#00a0dd',
     'color': 'white',
     'border': 'none',
     'border-top': 'none',
+    'font-family': '"Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    'font-size': '1.5rem',
+    'font-weight': '400',
+    'text-transform': 'uppercase',
+    'letter-spacing': ' 3px',
+    'margin-top': '0',
+    'margin-bottom': '0.5rem',
+    'font-weight': '600',
+    'line-height': '1.2',
 }
 
 SELECTED_STYLE = {
-    'font-family': 'Arial, Helvetica, sans-serif',
-    'font-size': '3vw',
     'background': '#d80052',
     'color': 'white',
     'border-top': 'none',
     'border': 'none',
+    'font-family': '"Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    'font-size': '1.5rem',
+    ' font-weight': '400',
+    'text-transform': 'uppercase',
+    'letter-spacing': ' 3px',
+    'margin-top': '0',
+    'margin-bottom': '0.5rem',
+    'font-weight': '600',
+    'line-height': '1.2',
 }
 
 
@@ -48,7 +63,7 @@ def create_layout():
             dcc.Tab(label='OVERVIEW', children=[
                 dbc.Container(
                     create_overview_tab(survey_df, postal_code_df, map_threshold))
-            ],
+                ],
                 style=TAB_STYLE,
                 selected_style=SELECTED_STYLE),
 

@@ -1,23 +1,22 @@
 /* CSS RULES FOR HTML TAGS */
 body {
     font-family: sans-serif;
-    /* background-color: #00a0dd; */
-    background-color:#98c1d2
+    background-color:#00a0dd
 }
+
 h1, h2, h3, h4, h5, h6 {
-    font-family:  'BUKA','Alergia Regular',sans-serif;
-    color: #d80052
+    /* font-family:  'BUKA','Alergia Regular',sans-serif; */
+    color: white
 }
+
 /* CSS RULES FOR CLASS NAMES WE DEFINE OURSELVES */
 .graph-heading {
-        font-family: sans-serif;
-        color: white;
-        font-size: 3vw;
+      
         padding-top: 5%;
-        padding-right: 5%;
-        padding-bottom: 5%;
-        padding-left: 5%;       
-}
+        text-transform: none;   
+        font-weight: normal;
+    
+    }
 
 .graph-heading-span{
     box-shadow: inset 0 -0.5em 0 0 #d80052;

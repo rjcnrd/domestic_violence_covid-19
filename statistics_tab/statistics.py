@@ -6,7 +6,7 @@ from statistics_tab.scatterplot_per_day import draw_scatterplot_per_day
 
 def create_statistics_tab(survey_df):
     tab_content = [
-        html.Div(children=
+        html.H4(children=
                  html.Span('Number of incidents reported per day', className="graph-heading-span"),
                  className="graph-heading"),
         dcc.Graph(
