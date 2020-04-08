@@ -4,23 +4,23 @@ import plotly.express as px
 FAMILY = "PT Sans"
 
 
-def data_processing_cumulative(df):
+def data_processing_cumulative(survey_df):
     """
-    :param df: data of the number of reports
+    :param survey_df: data of the number of reports
     :return: a pandas data frame with the cumulative number of report per day
     """
-    df.date_of_report = pd.to_datetime(df.date_of_report)
-    data = pd.DataFrame(df.groupby("date_of_report")["first_time_exprience"].count().cumsum())
+    survey_df.date_of_report = pd.to_datetime(survey_df.date_of_report)
+    data = pd.DataFrame(survey_df.groupby("date_of_report")["first_time_exprience"].count().cumsum())
     data = data.rename(columns={"first_time_exprience": "cumulative_number_of_reports"}).reset_index()
     return data
 
 
-def cumulative_graph(df):
+def cumulative_graph(survey_df):
     """
-    :param df:  data with the number of reports
+    :param survey_df:  data with the number of reports
     :return: the graph for the cumulative number of reports
     """
-    data = data_processing_cumulative(df)
+    data = data_processing_cumulative(survey_df)
     fig = px.area(data,
                   x="date_of_report",
                   y="cumulative_number_of_reports", color_discrete_sequence=["white"],
