@@ -7,9 +7,9 @@ FAMILY = "PT Sans"
 
 def add_ranking(df):
     '''
-    add_ranking adds a rank between (1, #of entries / day) to every report. 
-    It takes in a df with a column "date_of_report" 
-    returns a new df that has a new column "rankings"
+    adds a rank between (1, #of entries / day) to every report
+    :param df: df with a column "date_of_report" 
+    :returns: a df that has a new column "rankings"
     '''
 
     df_new = df
