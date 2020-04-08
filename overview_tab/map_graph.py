@@ -9,11 +9,11 @@ def data_processing_for_graph(survey_df, postal_code_df, map_threshold):
     """
     :param map_threshold: a number giving the threshold after which we can plot a marker on the map
     :param postal_code_df: data frame that includes the postal codes, the latitude and the longitude
-    :param survey_df: survey data
+    :param survey_df: survey data. Using the postal code and the "first time experience" but only for the groupby, could be another columns
     :return: a dataframe with one row per postal code as index, with latitude, longitude and number of incidents
     """
-    data = pd.DataFrame(survey_df.groupby("postal_code")["first_time_exprience"].count())
-    data = data.rename(columns={"first_time_exprience": "count_incidents"})
+    data = pd.DataFrame(survey_df.groupby("postal_code")["first_time_experience"].count())
+    data = data.rename(columns={"first_time_experience": "count_incidents"})
     data = data[data.count_incidents > map_threshold]
     data = data.merge(postal_code_df, left_index=True, right_on="postcode", how="left")
     return data
