@@ -4,6 +4,7 @@ import numpy as np
 COLORSCALE = ["white", "white", "white", "#d80052", "white"]
 FAMILY = "PT Sans"
 
+
 def add_ranking(df):
     '''
     add_ranking adds a rank between (1, #of entries / day) to every report. 
@@ -15,9 +16,7 @@ def add_ranking(df):
     df_new["ranking"] = ""
     starting_point = 0
     for date in df.date_of_report.unique():
-
         number_of_entries_this_day = len(df_new[df_new.date_of_report == date])
-
         for i in range(0, number_of_entries_this_day):
             df_new.iloc[starting_point+i, 5] = 1 + i
         starting_point = starting_point + i + 1
@@ -29,11 +28,9 @@ def draw_scatterplot_per_day(df):
     figure = go.Figure(data=go.Scatter(
         x=df.date_of_report,
         y=df.ranking,
-        hovertemplate=
-        "%{text}" +
+        hovertemplate="%{text}" +
         "<extra></extra>",
         text=df.written_report,
-
         hoverlabel=dict(
             bgcolor="#00a0dd"),
         mode='markers',
@@ -47,14 +44,6 @@ def draw_scatterplot_per_day(df):
 
     ),
         layout=dict(
-        title=dict(
-            text="Number of incidents reported per day",
-            font=dict(
-                family=FAMILY,
-                color="white",
-                size=24
-            )
-        ),
         paper_bgcolor="#00a0dd",
         plot_bgcolor="#00a0dd",
         xaxis=dict(
@@ -63,7 +52,6 @@ def draw_scatterplot_per_day(df):
 
         yaxis=dict(color="white",
                    showgrid=False)
-
 
     )
 
