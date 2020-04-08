@@ -5,17 +5,17 @@ COLORSCALE = ["white", "white", "white", "#d80052", "white"]
 FAMILY = "PT Sans"
 
 
-def add_ranking(df):
-    '''
+def add_ranking(survey_df):
+    """
     adds a rank between (1, #of entries / day) to every report
-    :param df: df with a column "date_of_report" 
+    :param survey_df: df with a column "date_of_report"
     :returns: a df that has a new column "rankings"
-    '''
+    """
 
-    df_new = df
+    df_new = survey_df
     df_new["ranking"] = ""
     starting_point = 0
-    for date in df.date_of_report.unique():
+    for date in df_new.date_of_report.unique():
         number_of_entries_this_day = len(df_new[df_new.date_of_report == date])
         for i in range(0, number_of_entries_this_day):
             df_new.iloc[starting_point+i, 5] = 1 + i
@@ -23,8 +23,8 @@ def add_ranking(df):
     return df_new
 
 
-def draw_scatterplot_per_day(df):
-    df = add_ranking(df)
+def draw_scatterplot_per_day(survey_df):
+    df = add_ranking(survey_df)
     figure = go.Figure(data=go.Scatter(
         x=df.date_of_report,
         y=df.ranking,

@@ -4,7 +4,7 @@ import dash_html_components as html
 from overview_tab.cumulative_nb_report import cumulative_graph
 
 
-def create_overview_tab(df, postal_code_df, map_threshold):
+def create_overview_tab(survey_df, postal_code_df, map_threshold):
     tab_content = html.Div([
         html.Div(children=[
             html.Div(children=
@@ -12,7 +12,7 @@ def create_overview_tab(df, postal_code_df, map_threshold):
                      className="graph-heading"
                      ),
             html.Div([
-                dcc.Graph(figure=map_graph(df, postal_code_df, map_threshold)),
+                dcc.Graph(figure=map_graph(survey_df, postal_code_df, map_threshold)),
             ])],
             style={'width': '48%', 'display': 'inline-block'}),
         html.Div(children=[
@@ -21,7 +21,7 @@ def create_overview_tab(df, postal_code_df, map_threshold):
                          html.Span("Cumulative number of incidents reported", className="graph-heading-span"),
                          className="graph-heading"
                          ),
-                html.Div([dcc.Graph(figure=cumulative_graph(df))],
+                html.Div([dcc.Graph(figure=cumulative_graph(survey_df))],
                          )])],
             style={'width': '48%', 'align': 'right', 'display': 'inline-block'})])
 
