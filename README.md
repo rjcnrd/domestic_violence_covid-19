@@ -30,7 +30,7 @@ Make sure you have master up to date, then :
 
 ```
 git push heroku master
-``
+```
 Link can be found : https://dash-app-gender-violence.herokuapp.com
 
 ## Built With
