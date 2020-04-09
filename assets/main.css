@@ -22,3 +22,14 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: inset 0 -0.5em 0 0 #d80052;
     padding: 0 10px;
 }
+
+.testimonialsFrame {
+    border: double;
+    border-color: #ffffff69;
+    margin-top: 2vw;
+}
+
+.testimonialsFrame p{
+    margin-top: 2vw;
+    margin-bottom:2vw;
+}

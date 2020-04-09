@@ -74,7 +74,7 @@ def create_layout():
 
             dcc.Tab(label='TESTIMONIALS', 
             children=[
-                dbc.Container(create_testimonials_tab())
+                dbc.Container(create_testimonials_tab(survey_df),className="testimonialsFrame")
                 ], 
             style=TAB_STYLE,
             selected_style=SELECTED_STYLE),
