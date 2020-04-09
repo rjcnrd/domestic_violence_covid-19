@@ -24,6 +24,14 @@ Update the environment
 pip3 freeze>requirements.txt
 ```
 
+Deploy the app on Heroku :
+
+Make sure you have master up to date, then :
+
+```
+git push heroku master
+``
+
 ## Built With
 
 * [Plotly/Dash](https://plotly.com/dash/) 
