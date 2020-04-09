@@ -27,14 +27,14 @@ def create_testimonials_tab(survey_df):
     list_of_messages = get_messages(survey_df)
     tab_content = [
         dbc.Row([
-            dbc.Col(html.P(list_of_messages[0]),md=6),
+            dbc.Col(html.P(list_of_messages[0]),md=6,className='text-truncate text-wrap'),
             dbc.Col(html.P(list_of_messages[1]),md=6)
         ]),
         dbc.Row([
-            dbc.Col(html.P(list_of_messages[2]),md=2),
-            dbc.Col(html.P(list_of_messages[3]),md=2),
-            dbc.Col(html.P(list_of_messages[4]),md=2),
-            dbc.Col(html.P(list_of_messages[5]),md=2)
+            dbc.Col(html.P(list_of_messages[2]),md=3),
+            dbc.Col(html.P(list_of_messages[3]),md=3),
+            dbc.Col(html.P(list_of_messages[4]),md=3),
+            dbc.Col(html.P(list_of_messages[5]),md=3)
         ]),
         dbc.Row([
             dbc.Col(html.P(list_of_messages[6]),md=4),
