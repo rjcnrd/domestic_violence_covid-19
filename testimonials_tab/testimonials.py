@@ -19,7 +19,7 @@ def get_messages(survey_df):
     '''
     for styling
     '''
-    report_list = pd.read_csv("dummy-testimonials.csv").testimonials.tolist()
+    report_list = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/dummy-testimonials.csv").testimonials.tolist()
     return report_list
 
 
