@@ -4,9 +4,10 @@ import dash_bootstrap_components as dbc
 
 from overview_tab.map_graph import map_graph
 from overview_tab.cumulative_nb_report import cumulative_graph
+from overview_tab.survivors_report import first_time_assault_count
 
 
-def create_overview_tab(df, postal_code_df, map_threshold):
+def create_overview_tab(survey_df, postal_code_df, map_threshold):
     tab_content = dbc.Row([
         # Column 1: Left Side
         dbc.Col([
@@ -15,7 +16,7 @@ def create_overview_tab(df, postal_code_df, map_threshold):
                     ),
             html.Div([
                 dcc.Graph(figure=map_graph(
-                    df, postal_code_df, map_threshold))
+                    survey_df, postal_code_df, map_threshold))
             ])], md=6
         ),
         # Column 2: Right Side
@@ -24,7 +25,7 @@ def create_overview_tab(df, postal_code_df, map_threshold):
                 [html.H4(children=html.Span("Cumulative number of incidents reported", className="graph-heading-span"),
                          className="graph-heading"
                          ),
-                 html.Div([dcc.Graph(figure=cumulative_graph(df))
+                 html.Div([dcc.Graph(figure=cumulative_graph(survey_df))
                            ])
                  ]),
             html.Div([
@@ -32,12 +33,12 @@ def create_overview_tab(df, postal_code_df, map_threshold):
                         className="graph-heading"
                         ),
                 dbc.Row([
-                    dbc.Col(html.Div("One of two columns")),
-                    dbc.Col(html.Div("One of two columns"))
+                    dbc.Col(html.Div(html.Span(first_time_assault_count(survey_df)), className="overviewNumber")),
+                    dbc.Col(html.Div(["One of two columns"]))
                 ]),
                 dbc.Row([
-                    dbc.Col(html.Div("One of two columns")),
-                    dbc.Col(html.Div("One of two columns"))
+                    dbc.Col(html.Div(["One of two columns"])),
+                    dbc.Col(html.Div(["One of two columns"]))
                 ])
             ])
         ], md=6)
