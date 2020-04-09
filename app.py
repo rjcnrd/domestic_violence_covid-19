@@ -11,7 +11,33 @@ import logging
 external_stylesheets = [dbc.themes.LUX]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
 server = app.server
+
+app.index_string = '''
+<!DOCTYPE html>
+<html>
+    <head>
+        {%metas%}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{%title%}</title>
+        {%favicon%}
+        {%css%}
+    </head>
+    <body>
+        <div></div>
+        {%app_entry%}
+        <footer>
+            {%config%}
+            {%scripts%}
+            {%renderer%}
+        </footer>
+        <div> </div>
+    </body>
+</html>
+'''
+
+
 app.layout = dbc.Container(
     create_layout()
     )
