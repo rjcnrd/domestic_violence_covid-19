@@ -39,3 +39,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1vw 1vw;
 
 }
+
+.head-of-app{
+    background-color: white;
+    height:17vw;
+    text-align:center;
+    color:#d80052
+}

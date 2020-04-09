@@ -25,7 +25,7 @@ app.index_string = '''
         {%css%}
     </head>
     <body>
-        <div></div>
+        <div class="head-of-app"><H1>Gender Violence Dashboard</H1></div>
         {%app_entry%}
         <footer>
             {%config%}
