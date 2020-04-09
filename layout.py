@@ -8,16 +8,17 @@ from overview_tab.overview import create_overview_tab
 from statistics_tab.statistics import create_statistics_tab
 from testimonials_tab.testimonials import create_testimonials_tab
 
-#DATA IN - dummy for now
-survey_df = pd.read_csv("dummy_data_new.csv", index_col = 0)
+# DATA IN - dummy for now
+survey_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/dummy_data_new.csv",
+                        index_col=0)
 
-#DATA Postal Code - in the git for now
-postal_code_df = pd.read_csv("ukpostcodes.csv")
+# DATA Postal Code - in the git for now
+postal_code_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/ukpostcodes.csv")
 
-#Threshold for plotting the data in the graph
+# Threshold for plotting the data in the graph
 map_threshold = 2
 
-#TAB STYLE IS EQUAL  to H3 in default style 
+# TAB STYLE IS EQUAL  to H3 in default style
 TAB_STYLE = {
     'background': '#00a0dd',
     'color': 'white',
@@ -63,21 +64,21 @@ def create_layout():
             dcc.Tab(label='OVERVIEW', children=[
                 dbc.Container(
                     create_overview_tab(survey_df, postal_code_df, map_threshold))
-                ],
-                style=TAB_STYLE,
-                selected_style=SELECTED_STYLE),
-
-            dcc.Tab(label='STATISTICS', 
-                    children=dbc.Container(create_statistics_tab(survey_df)), 
+            ],
                     style=TAB_STYLE,
                     selected_style=SELECTED_STYLE),
 
-            dcc.Tab(label='TESTIMONIALS', 
-            children=[
-                dbc.Container(create_testimonials_tab(survey_df),className="testimonialsFrame")
-                ], 
-            style=TAB_STYLE,
-            selected_style=SELECTED_STYLE),
+            dcc.Tab(label='STATISTICS',
+                    children=dbc.Container(create_statistics_tab(survey_df)),
+                    style=TAB_STYLE,
+                    selected_style=SELECTED_STYLE),
+
+            dcc.Tab(label='TESTIMONIALS',
+                    children=[
+                        dbc.Container(create_testimonials_tab(survey_df), className="testimonialsFrame")
+                    ],
+                    style=TAB_STYLE,
+                    selected_style=SELECTED_STYLE),
         ])
     ])
     return layout
