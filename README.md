@@ -6,23 +6,32 @@ In several European countries, lockdown measures are implemented following the c
 
 After cloning the repo, create a virtual environment & start the app following the steps below.
 
-Create environment
+#### Create environment
 ```
 python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-Launch the dash app 
+#### Launch the dash app
 ```
 python3 app.py
 ```
 Open http://127.0.0.1:8050/ in your browser to see the app.
 
-Update the environment 
+#### Update the environment
 ```
 pip3 freeze>requirements.txt
 ```
+
+#### Deploy the app on Heroku :
+
+Make sure you have master up to date, then :
+
+```
+git push heroku master
+```
+Link can be found : https://dash-app-gender-violence.herokuapp.com
 
 ## Built With
 
