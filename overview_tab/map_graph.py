@@ -32,15 +32,15 @@ def map_graph(survey_df, postal_code_df, map_threshold):
                             lon="longitude",
                             size="count_incidents",  # size of the dots
                             color_discrete_sequence=['#d80052'],  # dots are pink
-                            zoom=4.2,  # add a zoom of size of great britain
+                            zoom=4.5,  # add a zoom of size of great britain
                             #width=600,  # width of the graph
-                            #height=630,  # height of the graph
+                            height=580,  # height of the graph
                             hover_name="count_incidents")
 
     fig.update_layout(mapbox_style="carto-positron",  # Chooses the type of map in the background
                       paper_bgcolor='rgba(0,0,0,0)',
                       plot_bgcolor='rgba(0,0,0,0)',
+                      margin=dict(l=20, r=30, t=20, b=20),
                       mapbox=dict(center=go.layout.mapbox.Center(lat=54.237933, lon=-2.36967)))
-  
 
     return fig

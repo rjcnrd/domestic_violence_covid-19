@@ -28,14 +28,14 @@ def cumulative_graph(survey_df):
                   x="date_of_report_day",
                   y="cumulative_number_of_reports", color_discrete_sequence=["white"],
                   #width=600,  # width of the graph
-                  #height=300
-                   )  # height of the graph
+                  height=300)  # height of the graph
 
     fig.update_layout(paper_bgcolor="#00a0dd",
                       plot_bgcolor='rgba(0,0,0,0)',
                       xaxis=dict(color="white", showgrid=False),
                       xaxis_title="Date",
                       yaxis_title="",
+                      margin=dict(l=20, r=30, t=20, b=20),
                       yaxis=dict(color="white", showgrid=False))
 
     return fig
