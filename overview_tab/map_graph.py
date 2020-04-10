@@ -34,7 +34,7 @@ def map_graph(survey_df, postal_code_df, map_threshold):
                             color_discrete_sequence=['#d80052'],  # dots are pink
                             zoom=4.2,  # add a zoom of size of great britain
                             #width=600,  # width of the graph
-                            height=500,  # height of the graph
+                            height=550,  # height of the graph
                             hover_name="count_incidents")
 
     fig.update_layout(mapbox_style="carto-positron",  # Chooses the type of map in the background
