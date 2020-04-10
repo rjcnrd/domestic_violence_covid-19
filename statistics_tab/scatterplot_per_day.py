@@ -2,7 +2,7 @@ import plotly.graph_objects as go
 import numpy as np
 import pandas as pd
 
-COLORSCALE = ["white", "white", "white", "#d80052", "white"]
+COLORSCALE = ["white", "#d80052"]
 FAMILY = "PT Sans"
 
 
@@ -33,9 +33,9 @@ def draw_scatterplot_per_day(survey_df):
         mode='markers',
         marker=dict(
             #size=40,
-            color=np.random.randn(len(df)),
+            color= df.display_testimonial,
             colorscale=COLORSCALE,
-            opacity=0.5
+            opacity=0.8
         )
 
     ),

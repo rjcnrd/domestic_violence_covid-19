@@ -1,9 +1,6 @@
-import dash
-import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 
-import random
 import pandas as pd
 import math
 import numpy as np
@@ -34,9 +31,9 @@ def get_fontsize(testimonial):
     elif text_length < 50:
         size = round(np.random.normal(1.5, 0.1), 2)
     else:
-        size = 1.5*(math.exp(-0.0009*text_length))
+        size = 1.5 * (math.exp(-0.0009 * text_length))
         size = round(np.random.normal(size, 0.1), 2)
-    stringified = str(size)+"rem"
+    stringified = str(size) + "rem"
     return stringified
 
 
@@ -44,8 +41,7 @@ def get_messages(survey_df):
     """
     for styling
     """
-    report_list = pd.read_csv(
-        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/dummy-testimonials.csv").testimonials.tolist()
+    report_list = survey_df[survey_df.display_testimonial == 1].written_report.tolist()
     return report_list
 
 
@@ -61,14 +57,14 @@ def create_column_content(list_of_messages):
         if index % 3 == 0:
             messages_in_first_column.append(
                 html.P(message, style={
-                       'font-size': get_fontsize(message)
-                       })
+                    'font-size': get_fontsize(message)
+                })
             )
         if index % 3 == 1:
             messages_in_second_column.append(
                 html.P(message, style={
-                       'font-size': get_fontsize(message)
-                       })
+                    'font-size': get_fontsize(message)
+                })
             )
         if index % 3 == 2:
             messages_in_third_column.append(
