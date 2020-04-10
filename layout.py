@@ -53,10 +53,6 @@ SELECTED_STYLE = {
 def create_layout():
     layout = html.Div(style={
     }, children=[
-        html.Div(children=[
-            html.H1(children='Hello World')
-        ]),
-
         dcc.Tabs(className="tabs", children=[
 
             dcc.Tab(label='OVERVIEW', children=[
@@ -78,5 +74,5 @@ def create_layout():
                     style=TAB_STYLE,
                     selected_style=SELECTED_STYLE),
         ])
-    ])
+    ],className="DashContent")
     return layout
