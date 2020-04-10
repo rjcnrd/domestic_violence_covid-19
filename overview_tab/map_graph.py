@@ -27,20 +27,27 @@ def map_graph(survey_df, postal_code_df, map_threshold):
     :return: map of UK with the number of agressions
     """
     data = data_processing_for_graph(survey_df, postal_code_df, map_threshold)
-    fig = px.scatter_mapbox(data,
-                            lat="latitude",
-                            lon="longitude",
-                            size="count_incidents",  # size of the dots
-                            color_discrete_sequence=['#d80052'],  # dots are pink
-                            zoom=4.5,  # add a zoom of size of great britain
-                            #width=600,  # width of the graph
-                            height=580,  # height of the graph
-                            hover_name="count_incidents")
+
+    fig = go.Figure(
+        data=go.Scattermapbox(
+            lat=data.latitude,
+            lon=data.longitude,
+            mode='markers',
+            hovertemplate="%{text} reports" +
+                          "<extra></extra>",
+            text=data.count_incidents,
+            marker=go.scattermapbox.Marker(
+                size=data.count_incidents * 0.5,  # size of the dots # the multipliers maybe need to be changed depending on the number of reports
+                color='#d80052'  # dots are pink
+            )))
 
     fig.update_layout(mapbox_style="carto-positron",  # Chooses the type of map in the background
                       paper_bgcolor='rgba(0,0,0,0)',
+                      height=580,  # height of the graph
                       plot_bgcolor='rgba(0,0,0,0)',
                       margin=dict(l=20, r=30, t=20, b=20),
-                      mapbox=dict(center=go.layout.mapbox.Center(lat=54.237933, lon=-2.36967)))
+                      mapbox=dict(center=go.layout.mapbox.Center(lat=54.237933, lon=-2.36967),
+                                  zoom=4.5  # add a zoom of size of great britain
+                                  ))
 
     return fig
