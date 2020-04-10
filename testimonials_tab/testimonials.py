@@ -34,9 +34,9 @@ def get_fontsize(testimonial):
     elif text_length < 50:
         size = round(np.random.normal(1.5, 0.1), 2)
     else:
-        size = 1.5*(math.exp(-0.0009*text_length))
+        size = 1.5 * (math.exp(-0.0009 * text_length))
         size = round(np.random.normal(size, 0.1), 2)
-    stringified = str(size)+"rem"
+    stringified = str(size) + "rem"
     return stringified
 
 
@@ -61,14 +61,14 @@ def create_column_content(list_of_messages):
         if index % 3 == 0:
             messages_in_first_column.append(
                 html.P(message, style={
-                       'font-size': get_fontsize(message)
-                       })
+                    'font-size': get_fontsize(message)
+                })
             )
         if index % 3 == 1:
             messages_in_second_column.append(
                 html.P(message, style={
-                       'font-size': get_fontsize(message)
-                       })
+                    'font-size': get_fontsize(message)
+                })
             )
         if index % 3 == 2:
             messages_in_third_column.append(

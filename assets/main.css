@@ -37,7 +37,18 @@ h1, h2, h3, h4, h5, h6 {
     border-width: 0.3vw;
     color: white;
     padding: 1vw 1vw;
+    animation-name: opacityOn;
+    animation-duration: 1s;
 
+}
+
+@keyframes opacityOn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 
