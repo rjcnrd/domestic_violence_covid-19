@@ -78,14 +78,21 @@ h1, h2, h3, h4, h5, h6 {
     color:#d80052
 }
 .head-of-app h1{
-    color:#d80052
+    color:#d80052;
+    font-family:  'BUKA';
+    font-size: 11vw;
 }
-
 
 .app-entry{
     background-color: #00a0dd;
+    padding-top: 1.5vw
 }
 
 footer {
     height:14vw
+}
+
+@font-face {
+    font-family: "BUKA";
+    src: url("WTC-BUKA.woff") format('woff');
 }

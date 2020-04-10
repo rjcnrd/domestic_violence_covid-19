@@ -24,8 +24,8 @@ TAB_STYLE = {
     'color': 'white',
     'border': 'none',
     'border-top': 'none',
-    'font-family': '"Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-    'font-size': '1.5rem',
+    'font-family':'BUKA',
+    'font-size': '6rem',
     'text-transform': 'uppercase',
     'letter-spacing': ' 3px',
     'margin-top': '0',
@@ -35,12 +35,12 @@ TAB_STYLE = {
 }
 
 SELECTED_STYLE = {
-    'background': '#d80052',
-    'color': 'white',
+    'background': '#00a0dd',
+    'color': '#d80052',
     'border-top': 'none',
     'border': 'none',
-    'font-family': '"Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-    'font-size': '1.5rem',
+      'font-family':'BUKA',
+    'font-size': '6rem',
     'text-transform': 'uppercase',
     'letter-spacing': ' 3px',
     'margin-top': '0',
