@@ -35,7 +35,7 @@ def draw_scatterplot_per_day(survey_df):
             #size=40,
             color=np.random.randn(len(df)),
             colorscale=COLORSCALE,
-            opacity=0.5
+            opacity=0.8
         )
 
     ),
