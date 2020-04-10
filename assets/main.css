@@ -24,15 +24,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .testimonialsFrame {
-    border: double;
-    border-color: #ffffff69;
     margin-top: 2vw;
 }
 
 .testimonialsFrame p{
     margin-top: 2vw;
     margin-bottom:2vw;
+    border-color: white;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    border: solid white;
+    border-width: 0.7vw;
+    color: white;
+    padding: 1vw 1vw;
+
 }
+
 
 .overviewNumber {
     color: white;
@@ -49,3 +56,4 @@ h1, h2, h3, h4, h5, h6 {
 .overviewSurvivorContainer {
     text-align: center;
 }
+
