@@ -27,8 +27,8 @@ def create_overview_tab(survey_df, postal_code_df, map_threshold):
                 [html.H4(children=html.Span("Cumulative number of incidents reported", className="graph-heading-span"),
                          className="graph-heading"
                          ),
-                 html.Div([dcc.Graph(figure=cumulative_graph(survey_df))
-                           ])
+                 html.Div(children=
+                          html.Div(children=[dcc.Graph(figure=cumulative_graph(survey_df))]))
                  ]),
             html.Div([
                 html.H4(children=html.Span("Survivors report", className="graph-heading-span"),
