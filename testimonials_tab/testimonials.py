@@ -41,8 +41,7 @@ def get_messages(survey_df):
     """
     for styling
     """
-    report_list = pd.read_csv(
-        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/dummy-testimonials.csv").testimonials.tolist()
+    report_list = survey_df[survey_df.display_testimonial == 1].written_report.tolist()
     return report_list
 
 
