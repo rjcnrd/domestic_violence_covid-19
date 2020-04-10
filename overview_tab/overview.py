@@ -14,11 +14,11 @@ def create_overview_tab(survey_df, postal_code_df, map_threshold):
             html.H4(children=html.Span("Number of incidents reported per postal code", className="graph-heading-span"),
                     className="graph-heading"
                     ),
-            html.Div([
-                dcc.Graph(figure=map_graph(
-                    survey_df, postal_code_df, map_threshold))
-            ])], md=6
-        ),
+            html.Div(
+                html.Div(children=[
+                    dcc.Graph(figure=map_graph(
+                        survey_df, postal_code_df, map_threshold))
+                ]))], md=6),
         # Column 2: Right Side
         dbc.Col([
             html.Div(
@@ -34,15 +34,18 @@ def create_overview_tab(survey_df, postal_code_df, map_threshold):
                         ),
                 dbc.Row([
                     dbc.Col(html.Div([html.Span(first_time_assault_count(survey_df), className="overviewNumber"),
-                                      html.P("Women report being assaulted for the first time during the lockdown", className="overviewText")],
+                                      html.P("Women report being assaulted for the first time during the lockdown",
+                                             className="overviewText")],
                                      className="overviewSurvivorContainer")),
                     dbc.Col(html.Div([html.Span(first_time_assault_percentage(survey_df), className="overviewNumber"),
-                                      html.P("Women report being assaulted for the first time during the lockdown", className="overviewText")],
+                                      html.P("Women report being assaulted for the first time during the lockdown",
+                                             className="overviewText")],
                                      className="overviewSurvivorContainer"))
                 ]),
                 dbc.Row([
                     dbc.Col(html.Div([html.Span(agressor(survey_df, "partner"), className="overviewNumber"),
-                                      html.P("Women report being assaulted by their partner", className="overviewText")],
+                                      html.P("Women report being assaulted by their partner",
+                                             className="overviewText")],
                                      className="overviewSurvivorContainer")),
                     dbc.Col(html.Div([html.Span(agressor(survey_df, "father"), className="overviewNumber"),
                                       html.P("Women report being assaulted by their father", className="overviewText")],
