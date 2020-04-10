@@ -11,7 +11,7 @@ def create_overview_tab(survey_df, postal_code_df, map_threshold):
     tab_content = dbc.Row([
         # Column 1: Left Side
         dbc.Col([
-            html.H4(children=html.Span("Number of incidents reported per postal code", className="graph-heading-span"),
+            html.H4(children=html.Span("Women all over the UK are experiencing difficulties during COVID-19", className="graph-heading-span"),
                     className="graph-heading"
                     ),
             html.Div(children=[
@@ -24,33 +24,33 @@ def create_overview_tab(survey_df, postal_code_df, map_threshold):
         # Column 2: Right Side
         dbc.Col([
             html.Div(
-                [html.H4(children=html.Span("Cumulative number of incidents reported", className="graph-heading-span"),
+                [html.H4(children=html.Span("Many of you have been in touch since we started our campaign", className="graph-heading-span"),
                          className="graph-heading"
                          ),
                  html.Div(children=
                           html.Div(children=[dcc.Graph(figure=cumulative_graph(survey_df))]))
                  ]),
             html.Div([
-                html.H4(children=html.Span("Survivors report", className="graph-heading-span"),
+                html.H4(children=html.Span("This is what you told us about your experience during COVID-19", className="graph-heading-span"),
                         className="graph-heading"
                         ),
                 dbc.Row([
                     dbc.Col(html.Div([html.Span(first_time_assault_count(survey_df), className="overviewNumber"),
-                                      html.P("Women report being assaulted for the first time during the lockdown",
+                                      html.P("of you told us about feeling unsafe at home during the lockdown",
                                              className="overviewText")],
                                      className="overviewSurvivorContainer")),
                     dbc.Col(html.Div([html.Span(first_time_assault_percentage(survey_df), className="overviewNumber"),
-                                      html.P("Women report being assaulted for the first time during the lockdown",
+                                      html.P("of you tell us they are anxious and/or depressed",
                                              className="overviewText")],
                                      className="overviewSurvivorContainer"))
                 ]),
                 dbc.Row([
                     dbc.Col(html.Div([html.Span(agressor(survey_df, "partner"), className="overviewNumber"),
-                                      html.P("Women report being assaulted by their partner",
+                                      html.P("of you feel insecure about the future",
                                              className="overviewText")],
                                      className="overviewSurvivorContainer")),
                     dbc.Col(html.Div([html.Span(agressor(survey_df, "father"), className="overviewNumber"),
-                                      html.P("Women report being assaulted by their father", className="overviewText")],
+                                      html.P("of you are afraid of the future economic situation", className="overviewText")],
                                      className="overviewSurvivorContainer"))
                 ])
             ])
