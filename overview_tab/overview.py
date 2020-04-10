@@ -33,8 +33,12 @@ def create_overview_tab(survey_df, postal_code_df, map_threshold):
                         className="graph-heading"
                         ),
                 dbc.Row([
-                    dbc.Col(html.Div(html.Span(first_time_assault_count(survey_df)), className="overviewNumber")),
-                    dbc.Col(html.Div(["One of two columns"]))
+                    dbc.Col(html.Div([html.Span(first_time_assault_count(survey_df), className="overviewNumber"),
+                                      html.P("Women report being assaulted for the first time during the lockdown", className="overviewText")],
+                                     className="overviewSurvivorContainer")),
+                    dbc.Col(html.Div([html.Span(first_time_assault_count(survey_df), className="overviewNumber"),
+                                      html.P("Women report being assaulted for the first time during the lockdown", className="overviewText")],
+                                     className="overviewSurvivorContainer"))
                 ]),
                 dbc.Row([
                     dbc.Col(html.Div(["One of two columns"])),
