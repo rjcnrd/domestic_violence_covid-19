@@ -14,11 +14,13 @@ def create_overview_tab(survey_df, postal_code_df, map_threshold):
             html.H4(children=html.Span("Number of incidents reported per postal code", className="graph-heading-span"),
                     className="graph-heading"
                     ),
-            html.Div(
+            html.Div(children=[
                 html.Div(children=[
                     dcc.Graph(figure=map_graph(
-                        survey_df, postal_code_df, map_threshold))
-                ]))], md=6),
+                        survey_df, postal_code_df, map_threshold))])
+
+            ])
+        ], md=6),
         # Column 2: Right Side
         dbc.Col([
             html.Div(
