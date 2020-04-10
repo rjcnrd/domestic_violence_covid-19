@@ -23,7 +23,9 @@ app.index_string = '''
     </head>
     <body>
         <div class="head-of-app"><H1>Gender Violence Dashboard</H1></div>
+        <div class="app-entry">        
         {%app_entry%}
+        </div>
         <footer>
             {%config%}
             {%scripts%}
@@ -37,7 +39,7 @@ app.index_string = '''
 
 app.layout = dbc.Container(
     create_layout()
-    )
+    ,className="app-entry")
 
 if __name__ == '__main__':
     app.run_server(debug=True)
