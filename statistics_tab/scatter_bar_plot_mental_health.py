@@ -114,7 +114,7 @@ def draw_scatterbarplot(survey_df, num_by_col=5):
     # Small line
     for x in small_line_position:
         fig.add_trace(go.Scatter(
-            x=[x + 3, x + 3],
+            x=[x + np.median(range(num_by_col))+ space_between_rating, x + np.median(range(num_by_col))+ space_between_rating],
             y=[0, -0.5],
             mode="lines", marker=dict(color="white"),
             hoverinfo="skip"
