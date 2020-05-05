@@ -10,6 +10,7 @@ space_between_gender = 2
 
 def data_gender_rating(survey_df, include_other=True):
     """
+    :param include_other: Include "other" gender
     :param survey_df: the survey data. We need the columns gender and mental_health
     :return: a pandas data frame, with 2 indexes : first the gender ("Man", "Woman", "Other", then the mental health grading (from 0 to 5).
     One column "percentage" with the the percentage of people in each mental health category, by gender
@@ -50,15 +51,13 @@ def location_scatterplot(percentage_cat, num_by_col=5):
                                                     "x": x_location,
                                                     "y": y_location}, ignore_index=True)
     # The place in the mental health column + Adding a shift for the mental health + Adding a shift for the gender
-    point_location["x"] = point_location["x"] + \
-                          point_location["mental_health"] * (num_by_col + space_between_rating) + \
-                          point_location["order"] * (
-                                  (num_by_col + space_between_rating) * nb_ratings + space_between_gender)
+    point_location["x"] = point_location["x"] + point_location["mental_health"] * (num_by_col + space_between_rating) + point_location["order"] * ((num_by_col + space_between_rating) * nb_ratings + space_between_gender)
     return point_location
 
 
 def draw_scatterbarplot(survey_df, num_by_col=5, include_other=True):
     """
+    :param include_other: boolean to include gender "other"
     :param survey_df: the result of the function location_df
     :param num_by_col: The number of points by row in each column of mental health rating. Default value is 5
     :return: the scatterbarplot
@@ -80,30 +79,33 @@ def draw_scatterbarplot(survey_df, num_by_col=5, include_other=True):
     mental_health_label = [int(x) for x in list(range(nb_ratings)) * number_gender]
 
     # Position of the gender label
-    gender_position_x = [(num_by_col + 1)*nb_ratings / 2 - 1,
-                         (num_by_col + 1)*nb_ratings +space_between_gender + (num_by_col + 1)*nb_ratings / 2 - 1]
+    gender_position_x = [(num_by_col + 1) * nb_ratings / 2 - 1,
+                         (num_by_col + 1) * nb_ratings + space_between_gender + (num_by_col + 1) * nb_ratings / 2 - 1]
 
     if number_gender == 3:
-        gender_position_x = gender_position_x + [((num_by_col + 1)*nb_ratings +space_between_gender)*2 + (num_by_col + 1)*nb_ratings / 2 - 1]
+        gender_position_x = gender_position_x + [
+            ((num_by_col + 1) * nb_ratings + space_between_gender) * 2 + (num_by_col + 1) * nb_ratings / 2 - 1]
     gender_position_y = [-5] * 3
     if number_gender == 2:
         gender_text_label = ["Woman", "Man"]
-    else :
+    else:
         gender_text_label = ["Woman", "Other", "Man"]
 
     # Position of the small lines between the gradings
-    small_line_position = [start_position1 + x *(num_by_col + space_between_rating) for x in range(nb_ratings-1)] + [start_position2 + x * (num_by_col + space_between_rating) for x in range(nb_ratings-1)]
+    small_line_position = [start_position1 + x * (num_by_col + space_between_rating) for x in range(nb_ratings - 1)] + [
+        start_position2 + x * (num_by_col + space_between_rating) for x in range(nb_ratings - 1)]
     if number_gender == 3:
-        small_line_position = small_line_position + [start_position3 + x * (num_by_col + space_between_rating) for x in range(nb_ratings-1)]
+        small_line_position = small_line_position + [start_position3 + x * (num_by_col + space_between_rating) for x in
+                                                     range(nb_ratings - 1)]
     # Position of the big line between the genders
-    big_line_position = [nb_ratings*(num_by_col + 1)]
+    big_line_position = [nb_ratings * (num_by_col + 1)]
     if number_gender == 3:
-        big_line_position=big_line_position+ [nb_ratings*(num_by_col + 1)*2+space_between_gender]
+        big_line_position = big_line_position + [nb_ratings * (num_by_col + 1) * 2 + space_between_gender]
 
-    #Color
+    # Color
     if number_gender == 3:
-        color_sequence = ["black", "white", "pink"] # has to be same order as index, so men, other, women
-    else :
+        color_sequence = ["black", "white", "pink"]  # has to be same order as index, so men, other, women
+    else:
         color_sequence = ["white", "pink"]
 
     # Graph
