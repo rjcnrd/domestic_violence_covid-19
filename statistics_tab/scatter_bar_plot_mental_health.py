@@ -1,10 +1,12 @@
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import numpy as np
 
 nb_ratings = 6
 space_between_rating = 1
 space_between_gender = 2
+
 
 def data_gender_rating(survey_df):
     """
@@ -43,7 +45,8 @@ def location_scatterplot(percentage_cat, num_by_col=5):
     # The place in the mental health column + Adding a shift for the mental health + Adding a shift for the gender
     point_location["x"] = point_location["x"] + \
                           point_location["mental_health"] * (num_by_col + space_between_rating) + \
-                          point_location["order"] * ((num_by_col + space_between_rating) * nb_ratings + space_between_gender)
+                          point_location["order"] * (
+                                  (num_by_col + space_between_rating) * nb_ratings + space_between_gender)
     return point_location
 
 
@@ -58,27 +61,34 @@ def draw_scatterbarplot(survey_df, num_by_col=5):
     # Position of the grading of mental health
     start_position1 = np.median(range(num_by_col))
     start_position2 = (num_by_col + space_between_rating) * nb_ratings + space_between_gender + start_position1
-    start_position3 = ((num_by_col + space_between_rating) * nb_ratings + space_between_gender)*2 + start_position1
-    mental_health_position_x = [start_position1 + x * (num_by_col + space_between_rating) for x in range(nb_ratings)] + [start_position2 + x * (num_by_col + space_between_rating) for x in range(nb_ratings)] + [start_position3 + x * (num_by_col + space_between_rating) for x in range(nb_ratings)]
+    start_position3 = ((num_by_col + space_between_rating) * nb_ratings + space_between_gender) * 2 + start_position1
+    mental_health_position_x = [start_position1 + x * (num_by_col + space_between_rating) for x in
+                                range(nb_ratings)] + [start_position2 + x * (num_by_col + space_between_rating) for x in
+                                                      range(nb_ratings)] + [
+                                   start_position3 + x * (num_by_col + space_between_rating) for x in range(nb_ratings)]
     mental_health_position_y = [-0.25] * 18
     mental_health_label = [int(x) for x in list(range(6)) * 3]
 
     # Position of the gender label
-    gender_position_x = [(num_by_col + 1)*nb_ratings / 2 - 1,
-                         (num_by_col + 1)*nb_ratings +space_between_gender + (num_by_col + 1)*nb_ratings / 2 - 1,
-                         ((num_by_col + 1)*nb_ratings +space_between_gender)*2 + (num_by_col + 1)*nb_ratings / 2 - 1]
+    gender_position_x = [(num_by_col + 1) * nb_ratings / 2 - 1,
+                         (num_by_col + 1) * nb_ratings + space_between_gender + (num_by_col + 1) * nb_ratings / 2 - 1,
+                         ((num_by_col + 1) * nb_ratings + space_between_gender) * 2 + (
+                                 num_by_col + 1) * nb_ratings / 2 - 1]
     gender_position_y = [-1] * 3
     gender_text_label = ["Woman", "Other", "Man"]
 
     # Position of the small lines between the gradings
-    small_line_position = [start_position1 + x *(num_by_col + space_between_rating) for x in range(nb_ratings-1)] + [start_position2 + x * (num_by_col + space_between_rating) for x in range(nb_ratings-1)] + [start_position3 + x * (num_by_col + space_between_rating) for x in range(nb_ratings-1)]
+    small_line_position = [start_position1 + x * (num_by_col + space_between_rating) for x in range(nb_ratings - 1)] + [
+        start_position2 + x * (num_by_col + space_between_rating) for x in range(nb_ratings - 1)] + [
+                              start_position3 + x * (num_by_col + space_between_rating) for x in range(nb_ratings - 1)]
     # Position of the big line between the genders
-    big_line_position = [nb_ratings*(num_by_col + 1), nb_ratings*(num_by_col + 1)*2+space_between_gender]
+    big_line_position = [nb_ratings * (num_by_col + 1), nb_ratings * (num_by_col + 1) * 2 + space_between_gender]
 
     # Graph
     fig = px.scatter(location_df, x="x",
                      y="y", color="gender",
-                     color_discrete_sequence=["black", "white", "pink"]) #has to be same order as index, so men, other, women
+                     color_discrete_sequence=["black", "white",
+                                              "pink"])  # has to be same order as index, so men, other, women
 
     fig.update_traces(hovertemplate=None, hoverinfo='skip')
 
