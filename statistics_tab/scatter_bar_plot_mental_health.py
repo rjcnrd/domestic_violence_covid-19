@@ -66,7 +66,7 @@ def draw_scatterbarplot(survey_df, num_by_col=5):
                                 range(nb_ratings)] + [start_position2 + x * (num_by_col + space_between_rating) for x in
                                                       range(nb_ratings)] + [
                                    start_position3 + x * (num_by_col + space_between_rating) for x in range(nb_ratings)]
-    mental_health_position_y = [-0.25] * 18
+    mental_health_position_y = [-2] * 18
     mental_health_label = [int(x) for x in list(range(6)) * 3]
 
     # Position of the gender label
@@ -74,7 +74,7 @@ def draw_scatterbarplot(survey_df, num_by_col=5):
                          (num_by_col + 1) * nb_ratings + space_between_gender + (num_by_col + 1) * nb_ratings / 2 - 1,
                          ((num_by_col + 1) * nb_ratings + space_between_gender) * 2 + (
                                  num_by_col + 1) * nb_ratings / 2 - 1]
-    gender_position_y = [-1] * 3
+    gender_position_y = [-5] * 3
     gender_text_label = ["Woman", "Other", "Man"]
 
     # Position of the small lines between the gradings
@@ -115,7 +115,7 @@ def draw_scatterbarplot(survey_df, num_by_col=5):
     for x in small_line_position:
         fig.add_trace(go.Scatter(
             x=[x + np.median(range(num_by_col))+ space_between_rating, x + np.median(range(num_by_col))+ space_between_rating],
-            y=[0, -0.5],
+            y=[0, -3],
             mode="lines", marker=dict(color="white"),
             hoverinfo="skip"
         ))
@@ -123,7 +123,7 @@ def draw_scatterbarplot(survey_df, num_by_col=5):
     for x in big_line_position:
         fig.add_trace(go.Scatter(
             x=[x, x],
-            y=[-0.5, 4],
+            y=[-3, 4],
             mode="lines",
             marker=dict(color="white"),
             hoverinfo="skip"
@@ -134,5 +134,5 @@ def draw_scatterbarplot(survey_df, num_by_col=5):
                       plot_bgcolor='rgba(0,0,0,0)')
 
     fig.update_xaxes(showticklabels=False, visible=False)
-    fig.update_yaxes(showticklabels=False, visible=False)
+    fig.update_yaxes(showticklabels=False, visible=False, scaleanchor="x", scaleratio=1)
     return fig
