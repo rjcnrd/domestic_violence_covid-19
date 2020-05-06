@@ -59,7 +59,7 @@ def create_layout():
 
             dcc.Tab(label='OVERVIEW', children=[
                 dbc.Container(
-                    create_overview_tab(survey_df, postal_code_df, map_threshold))
+                    create_overview_tab(survey_df, new_data, postal_code_df, map_threshold))
             ],
                     style=TAB_STYLE,
                     selected_style=SELECTED_STYLE),
