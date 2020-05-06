@@ -23,8 +23,12 @@ def data_processing_for_graph(survey_df, postal_code_df, map_threshold):
     :param map_threshold: a number giving the threshold after which we can plot a marker on the map
     :param postal_code_df: data frame that includes the postal codes, the latitude and the longitude
     :param survey_df: survey data. Using the postal code and the "first time experience" but only for the groupby, could be another columns
-    :return: a dataframe with one row per postal code as index, with latitude, longitude and number of incidents
+    :return: 5 dataframes per layer of the graph with one row per postal code as index, with latitude, longitude and number of incidents
     """
+    all_reports = pd.DataFrame(survey_df.groupby("postal_code")["safety"].count())
+    all_reports = all_reports.rename(columns={"safety": "all_reports"})
+    all_reports = apply_threshold_merge_postcode(all_reports, "all_reports", postal_code_df, map_threshold)
+
     safety_df = pd.DataFrame(survey_df.loc[survey_df.safety < 3].groupby("postal_code")["safety"].count())
     safety_df = apply_threshold_merge_postcode(safety_df, "safety", postal_code_df, map_threshold)
 
@@ -43,7 +47,7 @@ def data_processing_for_graph(survey_df, postal_code_df, map_threshold):
             "postal_code")["working_situation"].count())
     working_situation_df = apply_threshold_merge_postcode(working_situation_df, "working_situation", postal_code_df,
                                                           map_threshold)
-    return safety_df, mental_health_df, safety_change_df, working_situation_df
+    return all_reports, safety_df, mental_health_df, safety_change_df, working_situation_df
 
 
 def map_graph(survey_df, postal_code_df, map_threshold):
@@ -53,13 +57,29 @@ def map_graph(survey_df, postal_code_df, map_threshold):
     :param postal_code_df: postal code data frame
     :return: map of UK with the number of agressions
     """
-    safety_df, mental_health_df, safety_change_df, working_situation_df = data_processing_for_graph(survey_df,
-                                                                                                    postal_code_df,
-                                                                                                    map_threshold)
+    all_reports_df, safety_df, mental_health_df, safety_change_df, working_situation_df = data_processing_for_graph(
+        survey_df,
+        postal_code_df,
+        map_threshold)
 
-    # Safety
+    # All reports
     fig = go.Figure(
         data=go.Scattermapbox(
+            lat=all_reports_df.latitude,
+            lon=all_reports_df.longitude,
+            mode='markers',
+            hovertemplate="%{text} reports" +
+                          "<extra></extra>",
+            text=all_reports_df.all_reports,
+            marker=go.scattermapbox.Marker(
+                size=all_reports_df.all_reports * 0.5,
+                # size of the dots # the multipliers maybe need to be changed depending on the number of reports
+                color='#d80052'  # dots are pink
+            )))
+    # Safety
+    fig.add_trace(
+        go.Scattermapbox(
+            visible=False,
             lat=safety_df.latitude,
             lon=safety_df.longitude,
             mode='markers',
@@ -69,7 +89,7 @@ def map_graph(survey_df, postal_code_df, map_threshold):
             marker=go.scattermapbox.Marker(
                 size=safety_df.safety * 0.5,
                 # size of the dots # the multipliers maybe need to be changed depending on the number of reports
-                color='#d80052'  # dots are pink
+                color='red'  # dots are pink
             )))
 
     # Safety Change
@@ -133,18 +153,21 @@ def map_graph(survey_df, postal_code_df, map_threshold):
                           x=1,  # place of the menu
                           borderwidth=0.1,
                           buttons=list([
+                              dict(label="All reports",
+                                   method="update",
+                                   args=[{"visible": [True, False, False, False, False]}]),
                               dict(label="Low Safety",
                                    method="update",
-                                   args=[{"visible": [True, False, False, False]}]),
+                                   args=[{"visible": [False, True, False, False, False]}]),
                               dict(label="Safety Change for Worse",
                                    method="update",
-                                   args=[{"visible": [False, True, False, False]}]),
+                                   args=[{"visible": [False, False, True, False, False]}]),
                               dict(label="Low Mental Health Rating",
                                    method="update",
-                                   args=[{"visible": [False, False, True, False]}]),
+                                   args=[{"visible": [False, False, False, True, False]}]),
                               dict(label="Critical Working Situation",
                                    method="update",
-                                   args=[{"visible": [False, False, False, True]}]),
+                                   args=[{"visible": [False, False, False, False, True]}])
                           ]),
                       )])
 
