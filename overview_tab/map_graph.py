@@ -71,6 +71,23 @@ def map_graph(survey_df, postal_code_df, map_threshold):
                 # size of the dots # the multipliers maybe need to be changed depending on the number of reports
                 color='#d80052'  # dots are pink
             )))
+
+    # Safety Change
+    fig.add_trace(
+        go.Scattermapbox(
+            visible=False,
+            lat=safety_change_df.latitude,
+            lon=safety_change_df.longitude,
+            mode='markers',
+            hovertemplate="%{text} reports" +
+                          "<extra></extra>",
+            text=safety_change_df.safety_change,
+            marker=go.scattermapbox.Marker(
+                size=safety_change_df.safety_change * 0.5,
+                # size of the dots # the multipliers maybe need to be changed depending on the number of reports
+                color='pink'  # dots are pink
+            )))
+
     # Mental Health
     fig.add_trace(
         go.Scattermapbox(
@@ -87,22 +104,6 @@ def map_graph(survey_df, postal_code_df, map_threshold):
                 color='orange'  # dots are pink
             )))
 
-    # Safety Change
-    fig.add_trace(
-        go.Scattermapbox(
-            visible=False,
-            lat=safety_change_df.latitude,
-            lon=safety_change_df.longitude,
-            mode='markers',
-            hovertemplate="%{text} reports" +
-                          "<extra></extra>",
-            text=safety_change_df.safety_change,
-            marker=go.scattermapbox.Marker(
-                size=safety_change_df.safety_change * 0.5,
-                # size of the dots # the multipliers maybe need to be changed depending on the number of reports
-                color='blue'  # dots are pink
-            )))
-
     # Working situation
     fig.add_trace(
         go.Scattermapbox(
@@ -116,7 +117,7 @@ def map_graph(survey_df, postal_code_df, map_threshold):
             marker=go.scattermapbox.Marker(
                 size=working_situation_df.working_situation * 0.5,
                 # size of the dots # the multipliers maybe need to be changed depending on the number of reports
-                color='green'  # dots are pink
+                color='paleturquoise'  # dots are pink
             )))
 
     fig.update_layout(mapbox_style="carto-positron",  # Chooses the type of map in the background
@@ -127,26 +128,23 @@ def map_graph(survey_df, postal_code_df, map_threshold):
                       mapbox=dict(center=go.layout.mapbox.Center(lat=54.237933, lon=-2.36967),
                                   zoom=4.5  # add a zoom of size of great britain
                                   ),
-                      title_text="Safety",
                       updatemenus=[dict(
-                          xanchor="left",
+                          xanchor="right",
+                          x=1,  # place of the menu
+                          borderwidth=0.1,
                           buttons=list([
-                              dict(label="Safety",
+                              dict(label="Low Safety",
                                    method="update",
-                                   args=[{"visible": [True, False, False, False]},
-                                         {"title": "Safety"}]),
-                              dict(label="Mental Health",
+                                   args=[{"visible": [True, False, False, False]}]),
+                              dict(label="Safety Change for Worse",
                                    method="update",
-                                   args=[{"visible": [False, True, False, False]},
-                                         {"title": "Mental Health"}]),
-                              dict(label="Safety Change",
+                                   args=[{"visible": [False, True, False, False]}]),
+                              dict(label="Low Mental Health Rating",
                                    method="update",
-                                   args=[{"visible": [False, False, True, False]},
-                                         {"title": "Safety Change"}]),
-                              dict(label="Working Situation",
+                                   args=[{"visible": [False, False, True, False]}]),
+                              dict(label="Critical Working Situation",
                                    method="update",
-                                   args=[{"visible": [False, False, False, True]},
-                                         {"title": "Working Situation"}]),
+                                   args=[{"visible": [False, False, False, True]}]),
                           ]),
                       )])
 
