@@ -7,7 +7,7 @@ from overview_tab.cumulative_nb_report import cumulative_graph
 from overview_tab.survivors_report import first_time_assault_count, first_time_assault_percentage, agressor
 
 
-def create_overview_tab(survey_df, postal_code_df, map_threshold):
+def create_overview_tab(survey_df, new_data, postal_code_df, map_threshold):
     tab_content = dbc.Row([
         # Column 1: Left Side
         dbc.Col([
@@ -17,7 +17,7 @@ def create_overview_tab(survey_df, postal_code_df, map_threshold):
             html.Div(children=[
                 html.Div(children=[
                     dcc.Graph(figure=map_graph(
-                        survey_df, postal_code_df, map_threshold))])
+                        new_data, postal_code_df, map_threshold))])
 
             ])
         ], md=6),
