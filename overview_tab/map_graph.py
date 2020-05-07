@@ -50,8 +50,9 @@ def data_processing_for_graph(survey_df, postal_code_df, map_threshold):
     return all_reports, safety_df, mental_health_df, safety_change_df, working_situation_df
 
 
-def map_graph(survey_df, postal_code_df, map_threshold):
+def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
     """
+    :param bubble_size: size of the reference bubble in the map. The bigger the bubble_size, the smaller the bubble
     :param map_threshold: a number giving the threshold after which we can plot a marker on the map
     :param survey_df: dummy data
     :param postal_code_df: postal code data frame
@@ -68,12 +69,12 @@ def map_graph(survey_df, postal_code_df, map_threshold):
             lat=all_reports_df.latitude,
             lon=all_reports_df.longitude,
             mode='markers',
-            hovertemplate="%{text} reports" +
-                          "<extra></extra>",
-            text=all_reports_df.all_reports,
+            hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} reports" + "<extra></extra>",
+            text=all_reports_df.postcode,
             marker=go.scattermapbox.Marker(
-                size=all_reports_df.all_reports * 0.5,
-                # size of the dots # the multipliers maybe need to be changed depending on the number of reports
+                sizeref=bubble_size,
+                size=all_reports_df.all_reports,
+                # size of the dots
                 color='#d80052'  # dots are pink
             )))
     # Safety
@@ -83,11 +84,11 @@ def map_graph(survey_df, postal_code_df, map_threshold):
             lat=safety_df.latitude,
             lon=safety_df.longitude,
             mode='markers',
-            hovertemplate="%{text} reports" +
-                          "<extra></extra>",
-            text=safety_df.safety,
+            hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} reports" + "<extra></extra>",
+            text=safety_df.postcode,
             marker=go.scattermapbox.Marker(
-                size=safety_df.safety * 0.5,
+                sizeref=bubble_size,
+                size=safety_df.safety,
                 # size of the dots # the multipliers maybe need to be changed depending on the number of reports
                 color='red'  # dots are pink
             )))
@@ -99,11 +100,11 @@ def map_graph(survey_df, postal_code_df, map_threshold):
             lat=safety_change_df.latitude,
             lon=safety_change_df.longitude,
             mode='markers',
-            hovertemplate="%{text} reports" +
-                          "<extra></extra>",
-            text=safety_change_df.safety_change,
+            hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} reports" + "<extra></extra>",
+            text=safety_change_df.postcode,
             marker=go.scattermapbox.Marker(
-                size=safety_change_df.safety_change * 0.5,
+                sizeref=bubble_size,
+                size=safety_change_df.safety_change,
                 # size of the dots # the multipliers maybe need to be changed depending on the number of reports
                 color='pink'  # dots are pink
             )))
@@ -115,11 +116,11 @@ def map_graph(survey_df, postal_code_df, map_threshold):
             lat=mental_health_df.latitude,
             lon=mental_health_df.longitude,
             mode='markers',
-            hovertemplate="%{text} reports" +
-                          "<extra></extra>",
-            text=mental_health_df.mental_health,
+            hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} reports" + "<extra></extra>",
+            text=mental_health_df.postcode,
             marker=go.scattermapbox.Marker(
-                size=mental_health_df.mental_health * 0.5,
+                sizeref=bubble_size,
+                size=mental_health_df.mental_health,
                 # size of the dots # the multipliers maybe need to be changed depending on the number of reports
                 color='orange'  # dots are pink
             )))
@@ -131,11 +132,11 @@ def map_graph(survey_df, postal_code_df, map_threshold):
             lat=working_situation_df.latitude,
             lon=working_situation_df.longitude,
             mode='markers',
-            hovertemplate="%{text} reports" +
-                          "<extra></extra>",
-            text=working_situation_df.working_situation,
+            hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} reports" + "<extra></extra>",
+            text=working_situation_df.postcode,
             marker=go.scattermapbox.Marker(
-                size=working_situation_df.working_situation * 0.5,
+                sizeref=bubble_size,
+                size=working_situation_df.working_situation,
                 # size of the dots # the multipliers maybe need to be changed depending on the number of reports
                 color='paleturquoise'  # dots are pink
             )))
