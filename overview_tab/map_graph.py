@@ -25,20 +25,16 @@ def data_processing_for_graph(survey_df, postal_code_df, map_threshold):
     :param survey_df: survey data. Using the postal code and the "first time experience" but only for the groupby, could be another columns
     :return: 5 dataframes per layer of the graph with one row per postal code as index, with latitude, longitude and number of incidents
     """
-    all_reports = pd.DataFrame(survey_df.groupby("postal_code")["safety"].count())
-    all_reports = all_reports.rename(columns={"safety": "all_reports"})
-    all_reports = apply_threshold_merge_postcode(all_reports, "all_reports", postal_code_df, map_threshold)
-
     safety_df = pd.DataFrame(survey_df.loc[survey_df.safety < 3].groupby("postal_code")["safety"].count())
     safety_df = apply_threshold_merge_postcode(safety_df, "safety", postal_code_df, map_threshold)
-
-    mental_health_df = pd.DataFrame(
-        survey_df.loc[survey_df.mental_health < 3].groupby("postal_code")["mental_health"].count())
-    mental_health_df = apply_threshold_merge_postcode(mental_health_df, "mental_health", postal_code_df, map_threshold)
 
     safety_change_df = pd.DataFrame(
         survey_df.loc[survey_df.safety_change == "Worse"].groupby("postal_code")["safety_change"].count())
     safety_change_df = apply_threshold_merge_postcode(safety_change_df, "safety_change", postal_code_df, map_threshold)
+
+    mental_health_df = pd.DataFrame(
+        survey_df.loc[survey_df.mental_health < 3].groupby("postal_code")["mental_health"].count())
+    mental_health_df = apply_threshold_merge_postcode(mental_health_df, "mental_health", postal_code_df, map_threshold)
 
     working_situation_df = pd.DataFrame(
         survey_df.loc[survey_df.working_situation.isin(["No, I have been furloughed because of the lockdown",
@@ -47,7 +43,18 @@ def data_processing_for_graph(survey_df, postal_code_df, map_threshold):
             "postal_code")["working_situation"].count())
     working_situation_df = apply_threshold_merge_postcode(working_situation_df, "working_situation", postal_code_df,
                                                           map_threshold)
-    return all_reports, safety_df, mental_health_df, safety_change_df, working_situation_df
+
+    all_reports_df = pd.DataFrame(survey_df.groupby("postal_code")["safety"].count())
+    all_reports_df = all_reports_df.rename(columns={"safety": "all_reports"})
+    all_reports_df = apply_threshold_merge_postcode(all_reports_df, "all_reports", postal_code_df, map_threshold)
+    all_reports_df = all_reports_df.merge(safety_df[["safety", "postcode"]], left_on="postcode", right_on="postcode")
+    all_reports_df = all_reports_df.merge(safety_change_df[["safety_change", "postcode"]], left_on="postcode",
+                                          right_on="postcode")
+    all_reports_df = all_reports_df.merge(mental_health_df[["mental_health", "postcode"]], left_on="postcode",
+                                          right_on="postcode")
+    all_reports_df = all_reports_df.merge(working_situation_df[["working_situation", "postcode"]], left_on="postcode",
+                                          right_on="postcode")
+    return all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df
 
 
 def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
@@ -58,10 +65,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
     :param postal_code_df: postal code data frame
     :return: map of UK with the number of agressions
     """
-    all_reports_df, safety_df, mental_health_df, safety_change_df, working_situation_df = data_processing_for_graph(
-        survey_df,
-        postal_code_df,
-        map_threshold)
+    all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df = data_processing_for_graph(survey_df, postal_code_df, map_threshold)
 
     # All reports
     fig = go.Figure(
