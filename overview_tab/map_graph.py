@@ -1,6 +1,7 @@
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import numpy as np
 
 FAMILY = "PT Sans"
 
@@ -75,8 +76,16 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             lat=all_reports_df.latitude,
             lon=all_reports_df.longitude,
             mode='markers',
-            hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} reports" + "<extra></extra>",
+            hovertemplate="<b>%{text}<br>" +
+                          "%{marker.size:,} reports</b>" +
+                          "<br><br><i>%{customdata[0]}</i> report to feel unsafe during the lockdown" +
+                          "<br><i>%{customdata[1]}</i> report to feel less safe during the lockdown" +
+                          "<br><i>%{customdata[2]}</i> report to have a low mental health during the lockdown" +
+                          "<br><i>%{customdata[3]}</i> report that they had to stop working during the lockdown" +
+                          "<extra></extra>",
             text=all_reports_df.postcode,
+            customdata=np.stack((all_reports_df['safety'], all_reports_df['safety_change'],
+                                 all_reports_df['mental_health'], all_reports_df['working_situation']), axis=-1),
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
                 size=all_reports_df.all_reports,
@@ -90,7 +99,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             lat=safety_df.latitude,
             lon=safety_df.longitude,
             mode='markers',
-            hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} reports" + "<extra></extra>",
+            hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report to feel unsafe during the lockdown" + "<extra></extra>",
             text=safety_df.postcode,
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
@@ -106,7 +115,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             lat=safety_change_df.latitude,
             lon=safety_change_df.longitude,
             mode='markers',
-            hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} reports" + "<extra></extra>",
+            hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report to feel less safe during the lockdown" + "<extra></extra>",
             text=safety_change_df.postcode,
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
@@ -122,7 +131,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             lat=mental_health_df.latitude,
             lon=mental_health_df.longitude,
             mode='markers',
-            hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} reports" + "<extra></extra>",
+            hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report to have a low mental health during the lockdown" + "<extra></extra>",
             text=mental_health_df.postcode,
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
@@ -138,7 +147,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             lat=working_situation_df.latitude,
             lon=working_situation_df.longitude,
             mode='markers',
-            hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} reports" + "<extra></extra>",
+            hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report that they had to stop working during the lockdown" + "<extra></extra>",
             text=working_situation_df.postcode,
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
