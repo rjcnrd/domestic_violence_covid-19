@@ -47,13 +47,14 @@ def data_processing_for_graph(survey_df, postal_code_df, map_threshold):
     all_reports_df = pd.DataFrame(survey_df.groupby("postal_code")["safety"].count())
     all_reports_df = all_reports_df.rename(columns={"safety": "all_reports"})
     all_reports_df = apply_threshold_merge_postcode(all_reports_df, "all_reports", postal_code_df, map_threshold)
-    all_reports_df = all_reports_df.merge(safety_df[["safety", "postcode"]], left_on="postcode", right_on="postcode")
+    all_reports_df = all_reports_df.merge(safety_df[["safety", "postcode"]], left_on="postcode", right_on="postcode",
+                                          how="left")
     all_reports_df = all_reports_df.merge(safety_change_df[["safety_change", "postcode"]], left_on="postcode",
-                                          right_on="postcode")
+                                          right_on="postcode", how="left")
     all_reports_df = all_reports_df.merge(mental_health_df[["mental_health", "postcode"]], left_on="postcode",
-                                          right_on="postcode")
+                                          right_on="postcode", how="left")
     all_reports_df = all_reports_df.merge(working_situation_df[["working_situation", "postcode"]], left_on="postcode",
-                                          right_on="postcode")
+                                          right_on="postcode", how="left")
     return all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df
 
 
@@ -65,7 +66,8 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
     :param postal_code_df: postal code data frame
     :return: map of UK with the number of agressions
     """
-    all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df = data_processing_for_graph(survey_df, postal_code_df, map_threshold)
+    all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df = data_processing_for_graph(
+        survey_df, postal_code_df, map_threshold)
 
     # All reports
     fig = go.Figure(
