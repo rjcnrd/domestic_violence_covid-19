@@ -12,10 +12,10 @@ from testimonials_tab.testimonials import create_testimonials_tab
 survey_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/dummy_data_new.csv",
                         index_col=0)
 
-new_data = pd.read_csv("data/dummy_final_survey_real_postcode_answers.csv", index_col = 0)
+new_data = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/dummy_final_survey_real_postcode_answers.csv", index_col = 0)
 
 # DATA Postal Code - in the git for now
-postal_code_df = pd.read_csv("data/postcode_uk.csv")
+postal_code_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/postcode_uk.csv")
 
 # Threshold for plotting the data in the graph
 map_threshold = 2
