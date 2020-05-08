@@ -122,8 +122,8 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
                 sizeref=bubble_size,
                 size=safety_df.safety,
                 sizemode ="area",
-                # size of the dots # the multipliers maybe need to be changed depending on the number of reports
-                color='red'  # dots are pink
+                # size of the dots
+                color='red'
             )))
 
     # Safety Change
@@ -139,8 +139,8 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
                 sizeref=bubble_size,
                 size=safety_change_df.safety_change,
                 sizemode ="area",
-                # size of the dots # the multipliers maybe need to be changed depending on the number of reports
-                color='pink'  # dots are pink
+                # size of the dots
+                color='DarkRed'
             )))
 
     # Mental Health
@@ -156,8 +156,8 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
                 sizeref=bubble_size,
                 size=mental_health_df.mental_health,
                 sizemode ="area",
-                # size of the dots # the multipliers maybe need to be changed depending on the number of reports
-                color='orange'  # dots are pink
+                # size of the dots
+                color='orange'
             )))
 
     # Working situation
@@ -173,8 +173,8 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
                 sizeref=bubble_size,
                 size=working_situation_df.working_situation,
                 sizemode ="area",
-                # size of the dots # the multipliers maybe need to be changed depending on the number of reports
-                color='paleturquoise'  # dots are pink
+                # size of the dots
+                color='Indigo'
             )))
 
     fig.update_layout(  # mapbox_style="carto-positron",  # Chooses the type of map in the background
