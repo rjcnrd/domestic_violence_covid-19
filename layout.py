@@ -12,13 +12,16 @@ from testimonials_tab.testimonials import create_testimonials_tab
 survey_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/dummy_data_new.csv",
                         index_col=0)
 
-new_data = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/dummy_final_survey.csv", index_col = 0)
+new_data = pd.read_csv("data/dummy_final_survey_real_postcode_answers.csv", index_col = 0)
 
 # DATA Postal Code - in the git for now
-postal_code_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/ukpostcodes.csv")
+postal_code_df = pd.read_csv("data/postcode_uk.csv")
 
 # Threshold for plotting the data in the graph
 map_threshold = 2
+
+#Bubble size on the map graph (the bigger the smaller the bubble)
+bubble_size = 2
 
 # TAB STYLE IS EQUAL  to H3 in default style
 TAB_STYLE = {
@@ -59,7 +62,7 @@ def create_layout():
 
             dcc.Tab(label='OVERVIEW', children=[
                 dbc.Container(
-                    create_overview_tab(survey_df, new_data, postal_code_df, map_threshold))
+                    create_overview_tab(survey_df, new_data, postal_code_df, map_threshold, bubble_size))
             ],
                     style=TAB_STYLE,
                     selected_style=SELECTED_STYLE),
