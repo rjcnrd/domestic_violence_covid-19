@@ -4,6 +4,8 @@ import plotly.graph_objects as go
 import numpy as np
 
 FAMILY = "PT Sans"
+token = "pk.eyJ1IjoiYW1lbWV1cmVyIiwiYSI6ImNrOHBxdHFmMTBqN2MzZ25sY3c1eHk4ZmoifQ.He4E-itQVmRV4znQMhXTjw"
+style_url = "mapbox://styles/amemeurer/ck8rg6v0k164o1inv1mttdq10"
 
 
 def apply_threshold_merge_postcode(survey_df, column, postal_code_df, map_threshold):
@@ -156,12 +158,14 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
                 color='paleturquoise'  # dots are pink
             )))
 
-    fig.update_layout(mapbox_style="carto-positron",  # Chooses the type of map in the background
+    fig.update_layout(#mapbox_style="carto-positron",  # Chooses the type of map in the background
                       paper_bgcolor='rgba(0,0,0,0)',
                       height=580,  # height of the graph
                       plot_bgcolor='rgba(0,0,0,0)',
                       margin=dict(l=20, r=30, t=20, b=20),
-                      mapbox=dict(center=go.layout.mapbox.Center(lat=54.237933, lon=-2.36967),
+                      mapbox=dict(accesstoken=token,
+                                  style=style_url,
+                                  center=go.layout.mapbox.Center(lat=54.237933, lon=-2.36967),
                                   zoom=4.5  # add a zoom of size of great britain
                                   ),
                       updatemenus=[dict(
