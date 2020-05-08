@@ -7,3 +7,4 @@ __pycache__/
 *.ipynb
 ideas.txt
 .idea
+typeform/typeform_token.py
