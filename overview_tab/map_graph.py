@@ -105,6 +105,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
                 size=all_reports_df.all_reports,
+                sizemode ="area",
                 # size of the dots
                 color='#d80052'  # dots are pink
             )))
@@ -120,6 +121,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
                 size=safety_df.safety,
+                sizemode ="area",
                 # size of the dots # the multipliers maybe need to be changed depending on the number of reports
                 color='red'  # dots are pink
             )))
@@ -136,6 +138,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
                 size=safety_change_df.safety_change,
+                sizemode ="area",
                 # size of the dots # the multipliers maybe need to be changed depending on the number of reports
                 color='pink'  # dots are pink
             )))
@@ -152,6 +155,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
                 size=mental_health_df.mental_health,
+                sizemode ="area",
                 # size of the dots # the multipliers maybe need to be changed depending on the number of reports
                 color='orange'  # dots are pink
             )))
@@ -168,6 +172,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
                 size=working_situation_df.working_situation,
+                sizemode ="area",
                 # size of the dots # the multipliers maybe need to be changed depending on the number of reports
                 color='paleturquoise'  # dots are pink
             )))
