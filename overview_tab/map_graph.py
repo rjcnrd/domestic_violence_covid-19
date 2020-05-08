@@ -78,12 +78,11 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             lat=all_reports_df.latitude,
             lon=all_reports_df.longitude,
             mode='markers',
-            hovertemplate="<b>%{text}<br>" +
-                          "%{marker.size:,} reports</b>" +
-                          "<br><br><i>%{customdata[0]}</i> report to feel unsafe during the lockdown" +
-                          "<br><i>%{customdata[1]}</i> report to feel less safe during the lockdown" +
-                          "<br><i>%{customdata[2]}</i> report to have a low mental health during the lockdown" +
-                          "<br><i>%{customdata[3]}</i> report that they had to stop working during the lockdown" +
+            hovertemplate="<b>We have %{marker.size:,} reports from %{text} during the lockdown</b><br>" +
+                          "<br><i>%{customdata[0]}</i> report to feel unsafe" +
+                          "<br><i>%{customdata[1]}</i> report to feel less safe" +
+                          "<br><i>%{customdata[2]}</i> report to have a low mental health" +
+                          "<br><i>%{customdata[3]}</i> report that they had to stop working" +
                           "<extra></extra>",
             text=all_reports_df.postcode,
             customdata=np.stack((all_reports_df['safety'], all_reports_df['safety_change'],
