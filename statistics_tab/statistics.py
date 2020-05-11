@@ -9,7 +9,7 @@ from statistics_tab.scatter_bar_plot_mental_health import draw_scatterbarplot
 def create_statistics_tab(survey_df, new_data):
     tab_content = html.Div([
         dbc.Row([
-            html.H4(children=html.Span('This is how many of you got in touch with us in the past month',
+            html.H4(children=html.Span('Many of you have gotten in touch with us in the past weeks and have shared their stories',
                                        className="graph-heading-span"),
                     className="graph-heading"),
             html.Div([dcc.Graph(figure=draw_scatterplot_per_day(survey_df), responsive=True

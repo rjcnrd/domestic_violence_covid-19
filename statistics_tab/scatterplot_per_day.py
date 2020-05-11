@@ -35,9 +35,11 @@ def draw_scatterplot_per_day(survey_df):
 
 
      
-        text=df.testimonial,
+        text=df.testimonial_short,
+
         hoverlabel=dict(
-            bgcolor="#00a0dd"),
+
+            bgcolor="#d80052"),
         mode='markers',
         marker=dict(
             #size=10,
