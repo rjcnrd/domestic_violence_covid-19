@@ -18,13 +18,13 @@ new_data = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violen
 postal_code_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/postcode_uk.csv")
 
 # International Postal codes
-countries_df = pd.read_csv("data/countries.csv")
+countries_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/countries.csv")
 
 # Threshold for plotting the data in the graph
 map_threshold = 2
 
 #Bubble size on the map graph (the bigger the smaller the bubble)
-bubble_size = 2
+bubble_size = 0.5
 
 # TAB STYLE IS EQUAL  to H3 in default style
 TAB_STYLE = {
