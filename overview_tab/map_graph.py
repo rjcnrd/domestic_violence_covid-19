@@ -41,8 +41,9 @@ def country_treatment(survey_data, countries_df, postal_code_col="postal_code"):
     survey_data.loc[:, postal_code_col] = survey_data.loc[:, postal_code_col].str.lstrip()
 
     # Start with a letter and Contains a number
-    data_to_display = survey_data.loc[survey_data.loc[:, "postal_code"].isin(countries_df.area)]
-    data_to_display["area"] = data_to_display.postal_code
+    data_to_display = survey_data.loc[survey_data.loc[:, postal_code_col].isin(countries_df.country_name)]
+    data_to_display = data_to_display.reset_index().merge(countries_df[["area", "country_name"]], how="left",
+                                                          right_on="country_name", left_on="postal_code").drop(columns=["country_name"]).set_index('index')
     return data_to_display
 
 
