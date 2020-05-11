@@ -38,30 +38,30 @@ def apply_threshold_merge_postcode(survey_df, column, postal_code_df, map_thresh
 
 def data_processing_for_graph(survey_df, postal_code_df, map_threshold):
     """
+    :param survey_df: data from the survey
     :param map_threshold: a number giving the threshold after which we can plot a marker on the map
     :param postal_code_df: data frame that includes the postal codes, the latitude and the longitude
-    :param data: survey_df data. Using the postal code and the "first time experience" but only for the groupby, could be another columns
     :return: a dataframe with one row per postal code as index, with latitude, longitude and number of incidents
     """
-    data = postal_code_treatment(survey_df)
-    safety_df = pd.DataFrame(data.loc[data.safety < 3].groupby("area")["safety"].count())
+    safety_df = pd.DataFrame(survey_df.loc[survey_df.safety < 3].groupby("area")["safety"].count())
     safety_df = apply_threshold_merge_postcode(safety_df, "safety", postal_code_df, map_threshold)
 
-    safety_change_df = pd.DataFrame(data.loc[data.safety_change == "Worse"].groupby("area")["safety_change"].count())
+    safety_change_df = pd.DataFrame(
+        survey_df.loc[survey_df.safety_change == "Worse"].groupby("area")["safety_change"].count())
     safety_change_df = apply_threshold_merge_postcode(safety_change_df, "safety_change", postal_code_df, map_threshold)
 
-    mental_health_df = pd.DataFrame(data.loc[data.mental_health < 3].groupby("area")["mental_health"].count())
+    mental_health_df = pd.DataFrame(survey_df.loc[survey_df.mental_health < 3].groupby("area")["mental_health"].count())
     mental_health_df = apply_threshold_merge_postcode(mental_health_df, "mental_health", postal_code_df, map_threshold)
 
     working_situation_df = pd.DataFrame(
-        data.loc[data.working_situation.isin(["No, I have been furloughed because of the lockdown",
-                                              "No, I have been made redundant because of the lockdown",
-                                              "No, I have had to stop working for other reasons related to COVID-19"])].groupby(
+        survey_df.loc[survey_df.working_situation.isin(["No, I have been furloughed because of the lockdown",
+                                                        "No, I have been made redundant because of the lockdown",
+                                                        "No, I have had to stop working for other reasons related to COVID-19"])].groupby(
             "area")["working_situation"].count())
     working_situation_df = apply_threshold_merge_postcode(working_situation_df, "working_situation", postal_code_df,
                                                           map_threshold)
 
-    all_reports_df = pd.DataFrame(data.groupby("area")["safety"].count())
+    all_reports_df = pd.DataFrame(survey_df.groupby("area")["safety"].count())
     all_reports_df = all_reports_df.rename(columns={"safety": "all_reports"})
     all_reports_df = apply_threshold_merge_postcode(all_reports_df, "all_reports", postal_code_df, map_threshold)
     all_reports_df = all_reports_df.merge(safety_df[["safety", "area"]], left_on="area", right_on="area", how="left")
@@ -76,16 +76,56 @@ def data_processing_for_graph(survey_df, postal_code_df, map_threshold):
     return all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df
 
 
-def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
+def country_treatment(survey_data, countries_df, postal_code_col="postal_code"):
+    # Deletes the spacing at the beginning
+    survey_data.loc[:, postal_code_col] = survey_data.loc[:, postal_code_col].str.lstrip()
+    survey_data.loc[:, postal_code_col] = survey_data.loc[:, postal_code_col].str.upper()
+    survey_data.loc[:, postal_code_col] = survey_data.loc[:, postal_code_col].str.lstrip()
+
+    # Start with a letter and Contains a number
+    data_to_display = survey_data.loc[survey_data.loc[:, "postal_code"].isin(countries_df.area)]
+    data_to_display["area"] = data_to_display.postal_code
+    return data_to_display
+
+
+def merge_local_internat_dataframe(survey_df, postal_code_df, countries_df, map_threshold):
     """
-    :param bubble_size: size of the reference bubble in the map. The bigger the bubble_size, the smaller the bubble
+    :param countries_df: latitude and longitude of the international countries
     :param map_threshold: a number giving the threshold after which we can plot a marker on the map
     :param survey_df: dummy data
     :param postal_code_df: postal code data frame
     :return: map of UK with the number of agressions
     """
-    all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df = data_processing_for_graph(
-        survey_df, postal_code_df, map_threshold)
+    # UK postcodes
+    uk_data = postal_code_treatment(survey_df)
+    all_reports_uk, safety_uk, safety_change_uk, mental_health_uk, working_situation_uk = data_processing_for_graph(
+        uk_data, postal_code_df, map_threshold)
+
+    # Countries postcodes
+    internat_data = country_treatment(survey_df, countries_df)
+    all_reports_internat, safety_internat, safety_change_internat, mental_health_internat, working_situation_internat = data_processing_for_graph(
+        internat_data, countries_df, map_threshold)
+
+    # NOW NEED TO APPEND ONE UNDER THE OTHER
+    all_reports_df = all_reports_uk.append(all_reports_internat)
+    safety_df = safety_uk.append(safety_internat)
+    safety_change_df = safety_change_uk.append(safety_change_internat)
+    mental_health_df = mental_health_uk.append(mental_health_internat)
+    working_situation_df = working_situation_uk.append(working_situation_internat)
+    return all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df
+
+
+def map_graph(survey_df, postal_code_df, countries_df, map_threshold, bubble_size=2):
+    """
+    :param countries_df: latitude and longitude of the international countries
+    :param bubble_size: size of the reference bubble in the map. The bigger the bubble_size, the smaller the bubble
+    :param map_threshold: a number giving the threshold after which we can plot a marker on the map
+    :param survey_df: dummy data
+    :param postal_code_df: latitude and longitude of areas in the UK (2 first letters of the postal code) 
+    :return: map of UK with the number of agressions
+    """
+    all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df = merge_local_internat_dataframe(
+        survey_df, postal_code_df, countries_df, map_threshold)
 
     # All reports
     fig = go.Figure(
@@ -105,7 +145,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
                 size=all_reports_df.all_reports,
-                sizemode ="area",
+                sizemode="area",
                 # size of the dots
                 color='#d80052'  # dots are pink
             )))
@@ -121,7 +161,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
                 size=safety_df.safety,
-                sizemode ="area",
+                sizemode="area",
                 # size of the dots
                 color='red'
             )))
@@ -138,7 +178,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
                 size=safety_change_df.safety_change,
-                sizemode ="area",
+                sizemode="area",
                 # size of the dots
                 color='DarkRed'
             )))
@@ -155,7 +195,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
                 size=mental_health_df.mental_health,
-                sizemode ="area",
+                sizemode="area",
                 # size of the dots
                 color='orange'
             )))
@@ -172,7 +212,7 @@ def map_graph(survey_df, postal_code_df, map_threshold, bubble_size=2):
             marker=go.scattermapbox.Marker(
                 sizeref=bubble_size,
                 size=working_situation_df.working_situation,
-                sizemode ="area",
+                sizemode="area",
                 # size of the dots
                 color='Indigo'
             )))
