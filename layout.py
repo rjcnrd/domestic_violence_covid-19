@@ -17,6 +17,9 @@ new_data = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violen
 # DATA Postal Code - in the git for now
 postal_code_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/postcode_uk.csv")
 
+# International Postal codes
+countries_df = pd.read_csv("data/countries.csv")
+
 # Threshold for plotting the data in the graph
 map_threshold = 2
 
@@ -62,7 +65,7 @@ def create_layout():
 
             dcc.Tab(label='OVERVIEW', children=[
                 dbc.Container(
-                    create_overview_tab(survey_df, new_data, postal_code_df, map_threshold, bubble_size))
+                    create_overview_tab(survey_df, new_data, postal_code_df, countries_df, map_threshold, bubble_size))
             ],
                     style=TAB_STYLE,
                     selected_style=SELECTED_STYLE),
