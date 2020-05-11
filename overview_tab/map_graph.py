@@ -12,6 +12,11 @@ style_url = "mapbox://styles/amemeurer/ck8rg6v0k164o1inv1mttdq10"
 
 
 def postal_code_treatment(survey_data, postal_code_col="postal_code"):
+    """
+    :param survey_data: survey data
+    :param postal_code_col: the name of the postal code column in the survey data
+    :return: the survey data frame with the rows that start with a letter and contain a number. + Append to this data frame a column with the 2 first letters of the postal code : this is the name of the area and will be used in the join with the postal code data frame.
+    """
     # Deletes the spacing at the beginning
     survey_data[postal_code_col] = survey_data[postal_code_col].str.lstrip()
     survey_data[postal_code_col] = survey_data[postal_code_col].str.upper()
@@ -20,6 +25,24 @@ def postal_code_treatment(survey_data, postal_code_col="postal_code"):
     data_to_display = survey_data.loc[survey_data[postal_code_col].str.contains('(^[A-Z])(.*\d+)')]
     data_to_display["area"] = data_to_display[postal_code_col].str.extract('^(\D*)')
     data_to_display["area"] = data_to_display["area"].str.rstrip()
+    return data_to_display
+
+
+def country_treatment(survey_data, countries_df, postal_code_col="postal_code"):
+    """
+    :param survey_data: survey data
+    :param countries_df: latitude and longitude of the international countries
+    :param postal_code_col: the name of the postal code column in the survey data
+    :return: the survey data frame with the rows where the postal code is simply the name of the country (with or without spacing). + Append to this data frame a column the name of the country : this is the name of the area and will be used in the join with the country data frame
+    """
+    # Deletes the spacing at the beginning
+    survey_data.loc[:, postal_code_col] = survey_data.loc[:, postal_code_col].str.lstrip()
+    survey_data.loc[:, postal_code_col] = survey_data.loc[:, postal_code_col].str.upper()
+    survey_data.loc[:, postal_code_col] = survey_data.loc[:, postal_code_col].str.lstrip()
+
+    # Start with a letter and Contains a number
+    data_to_display = survey_data.loc[survey_data.loc[:, "postal_code"].isin(countries_df.area)]
+    data_to_display["area"] = data_to_display.postal_code
     return data_to_display
 
 
@@ -41,7 +64,7 @@ def data_processing_for_graph(survey_df, postal_code_df, map_threshold):
     :param survey_df: data from the survey
     :param map_threshold: a number giving the threshold after which we can plot a marker on the map
     :param postal_code_df: data frame that includes the postal codes, the latitude and the longitude
-    :return: a dataframe with one row per postal code as index, with latitude, longitude and number of incidents
+    :return: 5 dataframe with one row per postal code as index, with latitude, longitude and number of incidents
     """
     safety_df = pd.DataFrame(survey_df.loc[survey_df.safety < 3].groupby("area")["safety"].count())
     safety_df = apply_threshold_merge_postcode(safety_df, "safety", postal_code_df, map_threshold)
@@ -76,25 +99,13 @@ def data_processing_for_graph(survey_df, postal_code_df, map_threshold):
     return all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df
 
 
-def country_treatment(survey_data, countries_df, postal_code_col="postal_code"):
-    # Deletes the spacing at the beginning
-    survey_data.loc[:, postal_code_col] = survey_data.loc[:, postal_code_col].str.lstrip()
-    survey_data.loc[:, postal_code_col] = survey_data.loc[:, postal_code_col].str.upper()
-    survey_data.loc[:, postal_code_col] = survey_data.loc[:, postal_code_col].str.lstrip()
-
-    # Start with a letter and Contains a number
-    data_to_display = survey_data.loc[survey_data.loc[:, "postal_code"].isin(countries_df.area)]
-    data_to_display["area"] = data_to_display.postal_code
-    return data_to_display
-
-
 def merge_local_internat_dataframe(survey_df, postal_code_df, countries_df, map_threshold):
     """
     :param countries_df: latitude and longitude of the international countries
     :param map_threshold: a number giving the threshold after which we can plot a marker on the map
     :param survey_df: dummy data
     :param postal_code_df: postal code data frame
-    :return: map of UK with the number of agressions
+    :return: merge the output of the data_processing_for_graph for UK postcodes and for the international. Output is given to the map function
     """
     # UK postcodes
     uk_data = postal_code_treatment(survey_df)
