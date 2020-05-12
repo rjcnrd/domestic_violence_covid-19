@@ -18,13 +18,13 @@ new_data = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violen
 postal_code_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/postcode_uk.csv")
 
 # International Postal codes
-countries_df = pd.read_csv("data/countries.csv")
+countries_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/countries.csv")
 
 # Threshold for plotting the data in the graph
 map_threshold = 2
 
-#Bubble size on the map graph (the bigger the smaller the bubble)
-bubble_size = 2
+# Bubble size on the map graph (the bigger the smaller the bubble)
+big_bubble_size = 0.1
 
 # TAB STYLE IS EQUAL  to H3 in default style
 TAB_STYLE = {
@@ -65,7 +65,7 @@ def create_layout():
 
             dcc.Tab(label='OVERVIEW', children=[
                 dbc.Container(
-                    create_overview_tab(survey_df, new_data, postal_code_df, countries_df, map_threshold, bubble_size))
+                    create_overview_tab(survey_df, new_data, postal_code_df, countries_df, map_threshold, big_bubble_size))
             ],
                     style=TAB_STYLE,
                     selected_style=SELECTED_STYLE),
