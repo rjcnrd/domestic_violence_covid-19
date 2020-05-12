@@ -12,8 +12,9 @@ def create_statistics_tab(survey_df, new_data):
             html.H4(children=html.Span('This is how many of you got in touch with us in the past month',
                                        className="graph-heading-span"),
                     className="graph-heading"),
-            html.Div([dcc.Graph(figure=draw_scatterplot_per_day(survey_df), responsive=True
-                                )], style={'display': 'inline-block', 'width': '100%'})]),
+            #html.Div([dcc.Graph(figure=draw_scatterplot_per_day(survey_df), responsive=True
+                                #)], style={'display': 'inline-block', 'width': '100%'})
+        ]),
         dbc.Row(
             # for Roberta
         ),
@@ -22,7 +23,8 @@ def create_statistics_tab(survey_df, new_data):
                                        className="graph-heading-span"),
                     className="graph-heading"),
             html.Div([dcc.Graph(figure=draw_scatterbarplot(new_data, num_by_col=3, include_other=True), responsive=True
-                                )], style={'display': 'inline-block', 'width': '100%'})]
+                                )], style={'display': 'inline-block', 'width': '100%'})
+        ]
         )])
 
     return tab_content
