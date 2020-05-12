@@ -97,8 +97,12 @@ def data_processing_for_graph(survey_df, postal_code_df, map_threshold):
                                     how="left")
     all_reports = all_reports.merge(working_situation[["work_situation", "area"]], left_on="area",
                                     right_on="area", how="left")
+    all_reports.safety_level = all_reports.safety_level.fillna(-1).astype(int).astype(str).replace('-1', np.nan)
+    all_reports.safety_change = all_reports.safety_change.fillna(-1).astype(int).astype(str).replace('-1', np.nan)
+    all_reports.mental_scale = all_reports.mental_scale.fillna(-1).astype(int).astype(str).replace('-1', np.nan)
+    all_reports.work_situation = all_reports.work_situation.fillna(-1).astype(int).astype(str).replace('-1', np.nan)
     all_reports[["safety_level", "safety_change", "mental_scale", "work_situation"]] = all_reports[
-        ["safety_level", "safety_change", "mental_scale", "work_situation"]].fillna("[Too low to be displayed]")
+        ["safety_level", "safety_change", "mental_scale", "work_situation"]].fillna("[0 reports or Too low to be displayed]")
     return all_reports, safety, safety_change, mental_health, working_situation
 
 
@@ -143,7 +147,7 @@ def merge_local_internat_dataframe(survey_df, postal_code_df, countries_df, post
     return all_reports, safety, safety_change, mental_health, working_situation, not_in_map, uk_data, uk_data_county
 
 
-def map_graph(survey_df, postal_code_df, countries_df, map_threshold, bubble_size=2):
+def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble_size=2, small_bubble_size = 0.01):
     """
     :param countries_df: latitude and longitude of the international countries
     :param bubble_size: size of the reference bubble in the map. The bigger the bubble_size, the smaller the bubble
@@ -176,7 +180,7 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, bubble_siz
             customdata=np.stack((all_reports_df['safety_level'], all_reports_df['safety_change'],
                                  all_reports_df['mental_scale'], all_reports_df['work_situation']), axis=-1),
             marker=go.scattermapbox.Marker(
-                sizeref=bubble_size,
+                sizeref=big_bubble_size,
                 size=all_reports_df.all_reports,
                 sizemode="area",
                 # size of the dots
@@ -192,7 +196,7 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, bubble_siz
             hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report to feel unsafe during the lockdown" + "<extra></extra>",
             text=safety_df.area_name,
             marker=go.scattermapbox.Marker(
-                sizeref=bubble_size,
+                sizeref=small_bubble_size,
                 size=safety_df.safety_level,
                 sizemode="area",
                 # size of the dots
@@ -209,7 +213,7 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, bubble_siz
             hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report to feel less safe during the lockdown" + "<extra></extra>",
             text=safety_change_df.area_name,
             marker=go.scattermapbox.Marker(
-                sizeref=bubble_size,
+                sizeref=small_bubble_size,
                 size=safety_change_df.safety_change,
                 sizemode="area",
                 # size of the dots
@@ -226,7 +230,7 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, bubble_siz
             hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report to have a low mental health during the lockdown" + "<extra></extra>",
             text=mental_health_df.area_name,
             marker=go.scattermapbox.Marker(
-                sizeref=bubble_size,
+                sizeref=small_bubble_size,
                 size=mental_health_df.mental_scale,
                 sizemode="area",
                 # size of the dots
@@ -243,7 +247,7 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, bubble_siz
             hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report that they had to stop working during the lockdown" + "<extra></extra>",
             text=working_situation_df.area_name,
             marker=go.scattermapbox.Marker(
-                sizeref=bubble_size,
+                sizeref=0.001,
                 size=working_situation_df.work_situation,
                 sizemode="area",
                 # size of the dots
