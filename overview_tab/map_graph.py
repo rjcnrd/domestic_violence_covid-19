@@ -113,6 +113,14 @@ def merge_local_internat_dataframe(survey_df, postal_code_df, countries_df, post
     """
     # UK postcodes
     uk_data = postal_code_treatment(survey_df, postal_code_col=postal_code_col)
+
+    # Include the ones that provide directly the name of the county
+    postal_code_df["upper"] = postal_code_df["area_name"].str.upper()
+    uk_data_county = survey_df.reset_index().merge(postal_code_df, left_on="location", right_on="upper").drop(
+        columns=["area_name", "latitude", "longitude", "upper"]).set_index('index')
+    uk_data = uk_data.append(uk_data_county)
+
+    # Do the processing for the UK data
     all_reports_uk, safety_uk, safety_change_uk, mental_health_uk, working_situation_uk = data_processing_for_graph(
         uk_data, postal_code_df, map_threshold)
 
@@ -121,6 +129,10 @@ def merge_local_internat_dataframe(survey_df, postal_code_df, countries_df, post
     all_reports_internat, safety_internat, safety_change_internat, mental_health_internat, working_situation_internat = data_processing_for_graph(
         internat_data, countries_df, map_threshold)
 
+    # Return the data that is not on the map
+    not_in_map = survey_df.drop(index=uk_data.index)
+    not_in_map = not_in_map.drop(index=internat_data.index)
+
     # NOW NEED TO APPEND ONE UNDER THE OTHER
     all_reports = all_reports_uk.append(all_reports_internat)
     safety = safety_uk.append(safety_internat)
@@ -128,10 +140,7 @@ def merge_local_internat_dataframe(survey_df, postal_code_df, countries_df, post
     mental_health = mental_health_uk.append(mental_health_internat)
     working_situation = working_situation_uk.append(working_situation_internat)
 
-    # Return the data that is not on the map
-    not_in_map = survey_df.drop(index=uk_data.index)
-    not_in_map = not_in_map.drop(index=internat_data.index)
-    return all_reports, safety, safety_change, mental_health, working_situation, not_in_map
+    return all_reports, safety, safety_change, mental_health, working_situation, not_in_map, uk_data, uk_data_county
 
 
 def map_graph(survey_df, postal_code_df, countries_df, map_threshold, bubble_size=2):
