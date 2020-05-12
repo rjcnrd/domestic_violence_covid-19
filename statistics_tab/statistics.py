@@ -2,7 +2,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 
-from statistics_tab.scatterplot_per_day import draw_scatterplot_per_day
+#from statistics_tab.scatterplot_per_day import draw_scatterplot_per_day
 from statistics_tab.scatter_bar_plot_mental_health import draw_scatterbarplot
 
 
