@@ -158,11 +158,11 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
     """
     # all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df = merge_local_internat_dataframe(
     # survey_df, postal_code_df, countries_df, map_threshold)
-    all_reports_df = pd.read_csv("./data/data_map_all_reports.csv")
-    safety_df = pd.read_csv("./data/data_map_safety_scale.csv")
-    safety_change_df = pd.read_csv("./data/data_map_safety_change.csv")
-    mental_health_df = pd.read_csv("./data/data_map_mental_health.csv")
-    working_situation_df = pd.read_csv("./data/data_map_working_situation.csv")
+    all_reports_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_all_reports.csv")
+    safety_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_safety_scale.csv")
+    safety_change_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_safety_change.csv")
+    mental_health_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_mental_health.csv")
+    working_situation_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_working_situation.csv")
 
     # All reports
     fig = go.Figure(
