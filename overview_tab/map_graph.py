@@ -102,7 +102,7 @@ def data_processing_for_graph(survey_df, postal_code_df, map_threshold):
     all_reports.mental_scale = all_reports.mental_scale.fillna(-1).astype(int).astype(str).replace('-1', np.nan)
     all_reports.work_situation = all_reports.work_situation.fillna(-1).astype(int).astype(str).replace('-1', np.nan)
     all_reports[["safety_level", "safety_change", "mental_scale", "work_situation"]] = all_reports[
-        ["safety_level", "safety_change", "mental_scale", "work_situation"]].fillna("[0 reports or Too low to be displayed]")
+        ["safety_level", "safety_change", "mental_scale", "work_situation"]].fillna("0")
     return all_reports, safety, safety_change, mental_health, working_situation
 
 
@@ -158,11 +158,11 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
     """
     # all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df = merge_local_internat_dataframe(
     # survey_df, postal_code_df, countries_df, map_threshold)
-    all_reports_df = pd.read_csv("./typeform/data_map_all.csv")
-    safety_df = pd.read_csv("./typeform/data_map_safety_scale.csv")
-    safety_change_df = pd.read_csv("./typeform/data_map_safety_change.csv")
-    mental_health_df = pd.read_csv("./typeform/data_map_mental_health.csv")
-    working_situation_df = pd.read_csv("./typeform/data_map_working_situation.csv")
+    all_reports_df = pd.read_csv("./data/data_map_all_reports.csv")
+    safety_df = pd.read_csv("./data/data_map_safety_scale.csv")
+    safety_change_df = pd.read_csv("./data/data_map_safety_change.csv")
+    mental_health_df = pd.read_csv("./data/data_map_mental_health.csv")
+    working_situation_df = pd.read_csv("./data/data_map_working_situation.csv")
 
     # All reports
     fig = go.Figure(
@@ -247,7 +247,7 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
             hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report that they had to stop working during the lockdown" + "<extra></extra>",
             text=working_situation_df.area_name,
             marker=go.scattermapbox.Marker(
-                sizeref=0.001,
+                sizeref=small_bubble_size,
                 size=working_situation_df.work_situation,
                 sizemode="area",
                 # size of the dots
