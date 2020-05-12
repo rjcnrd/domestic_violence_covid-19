@@ -10,11 +10,6 @@ FAMILY = "PT Sans"
 token = "pk.eyJ1IjoiYW1lbWV1cmVyIiwiYSI6ImNrOHBxdHFmMTBqN2MzZ25sY3c1eHk4ZmoifQ.He4E-itQVmRV4znQMhXTjw"
 style_url = "mapbox://styles/amemeurer/ck8rg6v0k164o1inv1mttdq10"
 
-all_reports_df= pd.read_csv("./typeform/data_map_all.csv")
-safety_df= pd.read_csv("./typeform/data_map_safety_scale.csv")
-safety_change_df= pd.read_csv("./typeform/data_map_safety_change.csv")
-mental_health_df= pd.read_csv("./typeform/data_map_mental_health.csv")
-working_situation_df= pd.read_csv("./typeform/data_map_working_situation.csv")
 
 def postal_code_treatment(survey_data, postal_code_col="postal_code"):
     """
@@ -73,37 +68,38 @@ def data_processing_for_graph(survey_df, postal_code_df, map_threshold):
     :param postal_code_df: data frame that includes the postal codes, the latitude and the longitude
     :return: 5 dataframe with one row per postal code as index, with latitude, longitude and number of incidents
     """
-    safety_df = pd.DataFrame(survey_df.loc[survey_df.safety_level < 3].groupby("area")["safety_level"].count())
-    safety_df = apply_threshold_merge_postcode(safety_df, "safety_level", postal_code_df, map_threshold)
+    safety = pd.DataFrame(survey_df.loc[survey_df.safety_level < 3].groupby("area")["safety_level"].count())
+    safety = apply_threshold_merge_postcode(safety, "safety_level", postal_code_df, map_threshold)
 
-    safety_change_df = pd.DataFrame(
+    safety_change = pd.DataFrame(
         survey_df.loc[survey_df.safety_change == "Worse"].groupby("area")["safety_change"].count())
-    safety_change_df = apply_threshold_merge_postcode(safety_change_df, "safety_change", postal_code_df, map_threshold)
+    safety_change = apply_threshold_merge_postcode(safety_change, "safety_change", postal_code_df, map_threshold)
 
-    mental_health_df = pd.DataFrame(survey_df.loc[survey_df.mental_scale < 3].groupby("area")["mental_scale"].count())
-    mental_health_df = apply_threshold_merge_postcode(mental_health_df, "mental_scale", postal_code_df, map_threshold)
+    mental_health = pd.DataFrame(survey_df.loc[survey_df.mental_scale < 3].groupby("area")["mental_scale"].count())
+    mental_health = apply_threshold_merge_postcode(mental_health, "mental_scale", postal_code_df, map_threshold)
 
-    working_situation_df = pd.DataFrame(
+    working_situation = pd.DataFrame(
         survey_df.loc[survey_df.work_situation.isin(["No, I have been furloughed because of the lockdown",
-                                                        "No, I have been made redundant because of the lockdown",
-                                                        "No, I have had to stop working for other reasons related to COVID-19"])].groupby(
+                                                     "No, I have been made redundant because of the lockdown",
+                                                     "No, I have had to stop working for other reasons related to COVID-19"])].groupby(
             "area")["work_situation"].count())
-    working_situation_df = apply_threshold_merge_postcode(working_situation_df, "work_situation", postal_code_df,
-                                                          map_threshold)
+    working_situation = apply_threshold_merge_postcode(working_situation, "work_situation", postal_code_df,
+                                                       map_threshold)
 
-    all_reports_df = pd.DataFrame(survey_df.groupby("area")["safety_level"].count())
-    all_reports_df = all_reports_df.rename(columns={"safety_level": "all_reports"})
-    all_reports_df = apply_threshold_merge_postcode(all_reports_df, "all_reports", postal_code_df, map_threshold)
-    all_reports_df = all_reports_df.merge(safety_df[["safety_level", "area"]], left_on="area", right_on="area", how="left")
-    all_reports_df = all_reports_df.merge(safety_change_df[["safety_change", "area"]], left_on="area", right_on="area",
-                                          how="left")
-    all_reports_df = all_reports_df.merge(mental_health_df[["mental_scale", "area"]], left_on="area", right_on="area",
-                                          how="left")
-    all_reports_df = all_reports_df.merge(working_situation_df[["work_situation", "area"]], left_on="area",
-                                          right_on="area", how="left")
-    all_reports_df[["safety_level", "safety_change", "mental_scale", "work_situation"]] = all_reports_df[
+    all_reports = pd.DataFrame(survey_df.groupby("area")["safety_level"].count())
+    all_reports = all_reports.rename(columns={"safety_level": "all_reports"})
+    all_reports = apply_threshold_merge_postcode(all_reports, "all_reports", postal_code_df, map_threshold)
+    all_reports = all_reports.merge(safety[["safety_level", "area"]], left_on="area", right_on="area",
+                                    how="left")
+    all_reports = all_reports.merge(safety_change[["safety_change", "area"]], left_on="area", right_on="area",
+                                    how="left")
+    all_reports = all_reports.merge(mental_health[["mental_scale", "area"]], left_on="area", right_on="area",
+                                    how="left")
+    all_reports = all_reports.merge(working_situation[["work_situation", "area"]], left_on="area",
+                                    right_on="area", how="left")
+    all_reports[["safety_level", "safety_change", "mental_scale", "work_situation"]] = all_reports[
         ["safety_level", "safety_change", "mental_scale", "work_situation"]].fillna("[Too low to be displayed]")
-    return all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df
+    return all_reports, safety, safety_change, mental_health, working_situation
 
 
 def merge_local_internat_dataframe(survey_df, postal_code_df, countries_df, postal_code_col, map_threshold):
@@ -113,7 +109,7 @@ def merge_local_internat_dataframe(survey_df, postal_code_df, countries_df, post
     :param map_threshold: a number giving the threshold after which we can plot a marker on the map
     :param survey_df: dummy data
     :param postal_code_df: postal code data frame
-    :return: merge the output of the data_processing_for_graph for UK postcodes and for the international. Output is given to the map function
+    :return: merge the output of the data_processing_for_graph for UK postcodes and for the international. Output is given to the map function + Returns the data that is not in the data frame
     """
     # UK postcodes
     uk_data = postal_code_treatment(survey_df, postal_code_col=postal_code_col)
@@ -126,12 +122,16 @@ def merge_local_internat_dataframe(survey_df, postal_code_df, countries_df, post
         internat_data, countries_df, map_threshold)
 
     # NOW NEED TO APPEND ONE UNDER THE OTHER
-    all_reports_df = all_reports_uk.append(all_reports_internat)
-    safety_df = safety_uk.append(safety_internat)
-    safety_change_df = safety_change_uk.append(safety_change_internat)
-    mental_health_df = mental_health_uk.append(mental_health_internat)
-    working_situation_df = working_situation_uk.append(working_situation_internat)
-    return all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df
+    all_reports = all_reports_uk.append(all_reports_internat)
+    safety = safety_uk.append(safety_internat)
+    safety_change = safety_change_uk.append(safety_change_internat)
+    mental_health = mental_health_uk.append(mental_health_internat)
+    working_situation = working_situation_uk.append(working_situation_internat)
+
+    # Return the data that is not on the map
+    not_in_map = survey_df.drop(index=uk_data.index)
+    not_in_map = not_in_map.drop(index=internat_data.index)
+    return all_reports, safety, safety_change, mental_health, working_situation, not_in_map
 
 
 def map_graph(survey_df, postal_code_df, countries_df, map_threshold, bubble_size=2):
@@ -143,8 +143,13 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, bubble_siz
     :param postal_code_df: latitude and longitude of areas in the UK (2 first letters of the postal code) 
     :return: map of UK with the number of agressions
     """
-    #all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df = merge_local_internat_dataframe(
-        #survey_df, postal_code_df, countries_df, map_threshold)
+    # all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df = merge_local_internat_dataframe(
+    # survey_df, postal_code_df, countries_df, map_threshold)
+    all_reports_df = pd.read_csv("./typeform/data_map_all.csv")
+    safety_df = pd.read_csv("./typeform/data_map_safety_scale.csv")
+    safety_change_df = pd.read_csv("./typeform/data_map_safety_change.csv")
+    mental_health_df = pd.read_csv("./typeform/data_map_mental_health.csv")
+    working_situation_df = pd.read_csv("./typeform/data_map_working_situation.csv")
 
     # All reports
     fig = go.Figure(
