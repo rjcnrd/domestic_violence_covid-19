@@ -23,7 +23,7 @@ countries_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_vi
 # Threshold for plotting the data in the graph
 map_threshold = 2
 
-#Bubble size on the map graph (the bigger the smaller the bubble)
+# Bubble size on the map graph (the bigger the smaller the bubble)
 big_bubble_size = 0.1
 
 # TAB STYLE IS EQUAL  to H3 in default style
