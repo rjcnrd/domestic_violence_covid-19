@@ -150,11 +150,12 @@ def merge_local_internat_dataframe(survey_df, postal_code_df, countries_df, post
 def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble_size=2, small_bubble_size=0.01):
     """
     :param countries_df: latitude and longitude of the international countries
-    :param bubble_size: size of the reference bubble in the map. The bigger the bubble_size, the smaller the bubble
+    :param big_bubble_size: size of the reference bubble in the map. For the first layer. The bigger the bubble_size, the smaller the bubble
+    :param small_bubble_size: size of the reference bubble in the map. For the other layer. The bigger the bubble_size, the smaller the bubble
     :param map_threshold: a number giving the threshold after which we can plot a marker on the map
     :param survey_df: dummy data
     :param postal_code_df: latitude and longitude of areas in the UK (2 first letters of the postal code) 
-    :return: map of UK with the number of agressions
+    :return: map of UK with the number of aggressions
     """
     # all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df = merge_local_internat_dataframe(
     # survey_df, postal_code_df, countries_df, map_threshold)
@@ -175,10 +176,10 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
                                                  "<br><i>{}</i> report to feel unsafe".format))
     all_reports_df["safety_change_text"] = np.where(all_reports_df["safety_change"] == 0, "",
                                                     all_reports_df["safety_change"].map(
-                                                        "<br><i>{}</i> report to feel less safe".format))
+                                                        "<br><i>{}</i> report feeling less safe".format))
     all_reports_df["mental_scale_text"] = np.where(all_reports_df["mental_scale"] == 0, "",
                                                    all_reports_df["mental_scale"].map(
-                                                       "<br><i>{}</i> report to have a low mental health".format))
+                                                       "<br><i>{}</i> report low mental health".format))
     all_reports_df["work_situation_text"] = np.where(all_reports_df["work_situation"] == 0, "",
                                                      all_reports_df["work_situation"].map(
                                                          "<br><i>{}</i> report that they had to stop working".format))
@@ -196,6 +197,9 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
                           "%{customdata[3]}" +
                           "<extra></extra>",
             text=all_reports_df.area_name,
+            hoverlabel=dict(bgcolor='#eceded',
+                            bordercolor='rgb(140, 140, 140)',
+                            font=dict(color="rgb(68, 68, 68)", size=11)),
             customdata=np.stack((all_reports_df["safety_text"], all_reports_df["safety_change_text"],
                                  all_reports_df["mental_scale_text"], all_reports_df["work_situation_text"]), axis=-1),
             marker=go.scattermapbox.Marker(
@@ -214,6 +218,9 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
             mode='markers',
             hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report to feel unsafe during the lockdown" + "<extra></extra>",
             text=safety_df.area_name,
+            hoverlabel=dict(bgcolor='#eceded',
+                            bordercolor='#eceded',
+                            font=dict(color="rgb(68, 68, 68)", size=11)),
             marker=go.scattermapbox.Marker(
                 sizeref=small_bubble_size,
                 size=safety_df.safety_level,
@@ -231,6 +238,9 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
             mode='markers',
             hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report to feel less safe during the lockdown" + "<extra></extra>",
             text=safety_change_df.area_name,
+            hoverlabel=dict(bgcolor='#eceded',
+                            bordercolor='#eceded',
+                            font=dict(color="rgb(68, 68, 68)", size=11)),
             marker=go.scattermapbox.Marker(
                 sizeref=small_bubble_size,
                 size=safety_change_df.safety_change,
@@ -248,6 +258,9 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
             mode='markers',
             hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report to have a low mental health during the lockdown" + "<extra></extra>",
             text=mental_health_df.area_name,
+            hoverlabel=dict(bgcolor='#eceded',
+                            bordercolor='#eceded',
+                            font=dict(color="rgb(68, 68, 68)", size=11)),
             marker=go.scattermapbox.Marker(
                 sizeref=small_bubble_size,
                 size=mental_health_df.mental_scale,
@@ -265,6 +278,9 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
             mode='markers',
             hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report that they had to stop working during the lockdown" + "<extra></extra>",
             text=working_situation_df.area_name,
+            hoverlabel=dict(bgcolor='#eceded',
+                            bordercolor='#eceded',
+                            font=dict(color="rgb(68, 68, 68)", size=11)),
             marker=go.scattermapbox.Marker(
                 sizeref=small_bubble_size,
                 size=working_situation_df.work_situation,
