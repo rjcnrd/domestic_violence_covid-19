@@ -196,6 +196,9 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
                           "%{customdata[3]}" +
                           "<extra></extra>",
             text=all_reports_df.area_name,
+            hoverlabel=dict(bgcolor='#eceded',
+                            bordercolor='rgb(140, 140, 140)',
+                            font=dict(color="rgb(68, 68, 68)", size=11)),
             customdata=np.stack((all_reports_df["safety_text"], all_reports_df["safety_change_text"],
                                  all_reports_df["mental_scale_text"], all_reports_df["work_situation_text"]), axis=-1),
             marker=go.scattermapbox.Marker(
@@ -214,6 +217,9 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
             mode='markers',
             hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report to feel unsafe during the lockdown" + "<extra></extra>",
             text=safety_df.area_name,
+            hoverlabel=dict(bgcolor='#eceded',
+                            bordercolor='rgb(140, 140, 140)',
+                            font=dict(color="rgb(68, 68, 68)", size=11)),
             marker=go.scattermapbox.Marker(
                 sizeref=small_bubble_size,
                 size=safety_df.safety_level,
@@ -231,6 +237,9 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
             mode='markers',
             hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report to feel less safe during the lockdown" + "<extra></extra>",
             text=safety_change_df.area_name,
+            hoverlabel=dict(bgcolor='#eceded',
+                            bordercolor='rgb(140, 140, 140)',
+                            font=dict(color="rgb(68, 68, 68)", size=11)),
             marker=go.scattermapbox.Marker(
                 sizeref=small_bubble_size,
                 size=safety_change_df.safety_change,
@@ -248,6 +257,9 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
             mode='markers',
             hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report to have a low mental health during the lockdown" + "<extra></extra>",
             text=mental_health_df.area_name,
+            hoverlabel=dict(bgcolor='#eceded',
+                            bordercolor='rgb(140, 140, 140)',
+                            font=dict(color="rgb(68, 68, 68)", size=11)),
             marker=go.scattermapbox.Marker(
                 sizeref=small_bubble_size,
                 size=mental_health_df.mental_scale,
@@ -265,6 +277,9 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
             mode='markers',
             hovertemplate="<b>%{text}</b><br>" + "%{marker.size:,} report that they had to stop working during the lockdown" + "<extra></extra>",
             text=working_situation_df.area_name,
+            hoverlabel=dict(bgcolor='#eceded',
+                            bordercolor='rgb(140, 140, 140)',
+                            font=dict(color="rgb(68, 68, 68)", size=11)),
             marker=go.scattermapbox.Marker(
                 sizeref=small_bubble_size,
                 size=working_situation_df.work_situation,
