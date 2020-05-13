@@ -147,7 +147,7 @@ def merge_local_internat_dataframe(survey_df, postal_code_df, countries_df, post
     return all_reports, safety, safety_change, mental_health, working_situation, not_in_map, uk_data, uk_data_county
 
 
-def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble_size=2, small_bubble_size = 0.01):
+def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble_size=2, small_bubble_size=0.01):
     """
     :param countries_df: latitude and longitude of the international countries
     :param bubble_size: size of the reference bubble in the map. The bigger the bubble_size, the smaller the bubble
@@ -158,11 +158,30 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
     """
     # all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df = merge_local_internat_dataframe(
     # survey_df, postal_code_df, countries_df, map_threshold)
-    all_reports_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_all_reports.csv")
-    safety_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_safety_scale.csv")
-    safety_change_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_safety_change.csv")
-    mental_health_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_mental_health.csv")
-    working_situation_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_working_situation.csv")
+    all_reports_df = pd.read_csv(
+        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_all_reports.csv")
+    safety_df = pd.read_csv(
+        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_safety_scale.csv")
+    safety_change_df = pd.read_csv(
+        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_safety_change.csv")
+    mental_health_df = pd.read_csv(
+        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_mental_health.csv")
+    working_situation_df = pd.read_csv(
+        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_working_situation.csv")
+
+    # Text for hover
+    all_reports_df["safety_text"] = np.where(all_reports_df["safety_level"] == 0, "",
+                                             all_reports_df["safety_level"].map(
+                                                 "<br><i>{}</i> report to feel unsafe".format))
+    all_reports_df["safety_change_text"] = np.where(all_reports_df["safety_change"] == 0, "",
+                                                    all_reports_df["safety_change"].map(
+                                                        "<br><i>{}</i> report to feel less safe".format))
+    all_reports_df["mental_scale_text"] = np.where(all_reports_df["mental_scale"] == 0, "",
+                                                   all_reports_df["mental_scale"].map(
+                                                       "<br><i>{}</i> report to have a low mental health".format))
+    all_reports_df["work_situation_text"] = np.where(all_reports_df["work_situation"] == 0, "",
+                                                     all_reports_df["work_situation"].map(
+                                                         "<br><i>{}</i> report that they had to stop working".format))
 
     # All reports
     fig = go.Figure(
@@ -171,14 +190,14 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
             lon=all_reports_df.longitude,
             mode='markers',
             hovertemplate="<b>We have %{marker.size:,} reports from %{text} during the lockdown</b><br>" +
-                          "<br><i>%{customdata[0]}</i> report to feel unsafe" +
-                          "<br><i>%{customdata[1]}</i> report to feel less safe" +
-                          "<br><i>%{customdata[2]}</i> report to have a low mental health" +
-                          "<br><i>%{customdata[3]}</i> report that they had to stop working" +
+                          "%{customdata[0]}" +
+                          "%{customdata[1]}" +
+                          "%{customdata[2]}" +
+                          "%{customdata[3]}" +
                           "<extra></extra>",
             text=all_reports_df.area_name,
-            customdata=np.stack((all_reports_df['safety_level'], all_reports_df['safety_change'],
-                                 all_reports_df['mental_scale'], all_reports_df['work_situation']), axis=-1),
+            customdata=np.stack((all_reports_df["safety_text"], all_reports_df["safety_change_text"],
+                                 all_reports_df["mental_scale_text"], all_reports_df["work_situation_text"]), axis=-1),
             marker=go.scattermapbox.Marker(
                 sizeref=big_bubble_size,
                 size=all_reports_df.all_reports,
