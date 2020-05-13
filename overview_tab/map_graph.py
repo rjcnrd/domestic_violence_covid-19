@@ -198,7 +198,7 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
                           "<extra></extra>",
             text=all_reports_df.area_name,
             hoverlabel=dict(bgcolor='#eceded',
-                            bordercolor='rgb(140, 140, 140)',
+                            bordercolor='#eceded',
                             font=dict(color="rgb(68, 68, 68)", size=11)),
             customdata=np.stack((all_reports_df["safety_text"], all_reports_df["safety_change_text"],
                                  all_reports_df["mental_scale_text"], all_reports_df["work_situation_text"]), axis=-1),
