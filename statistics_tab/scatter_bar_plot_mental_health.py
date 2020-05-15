@@ -122,7 +122,7 @@ def draw_scatterbarplot(survey_df, num_by_col=5, include_other=True):
     # location_df = location_scatterplot(prepared_data, num_by_col)
 
     location_df = pd.read_csv(
-        "/Users/ameliemeurer/Documents/Amélie/HEC M2/07. Research Paper - UN Women/02. Code/domestic_violence_covid-19/typeform/data_scatterplot.csv")
+        "./typeform/data_scatterplot.csv")
     # The data with testimonial
     data_testimonial = location_df.loc[location_df.display_testimonial == 1]
     # The data without the testimonial
