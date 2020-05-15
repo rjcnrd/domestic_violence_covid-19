@@ -190,7 +190,7 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
             lat=all_reports_df.latitude,
             lon=all_reports_df.longitude,
             mode='markers',
-            hovertemplate="<b>We have %{marker.size:,} reports from %{text} during the lockdown</b><br>" +
+            hovertemplate="<b>%{marker.size:,} reports from %{text}</b>" +
                           "%{customdata[0]}" +
                           "%{customdata[1]}" +
                           "%{customdata[2]}" +
