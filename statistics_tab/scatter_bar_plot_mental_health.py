@@ -1,44 +1,60 @@
 import pandas as pd
-import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
+import textwrap
 
 nb_ratings = 6
 space_between_rating = 1
 space_between_gender = 2
 
 
-def data_gender_rating(survey_df, include_other=True):
+def data_gender_rating(survey_df, do_percentage=True, mental_health_col="mental_scale", include_other=True,
+                       include_man=True):
     """
+    :param mental_health_col: name of the mental health column
+    :param do_percentage: do a percentage. If false : does the absolute number
+    :param include_man: include "man"
     :param include_other: Include "other" gender
     :param survey_df: the survey data. We need the columns gender and mental_health
     :return: a pandas data frame, with 2 indexes : first the gender ("Man", "Woman", "Other", then the mental health grading (from 0 to 5).
     One column "percentage" with the the percentage of people in each mental health category, by gender
     """
-    percentage_cat = pd.DataFrame(
-        (survey_df.groupby(["gender", "mental_health"])["age"].count() / survey_df.groupby(["gender"])["age"].count()))
-    percentage_cat = percentage_cat.rename(columns={"age": "percentage"})
-    percentage_cat["percentage"] = percentage_cat["percentage"].round(2) * 100
+    df = pd.DataFrame(survey_df.groupby(["gender", mental_health_col])["age"].count())
+    if do_percentage:
+        df = df / pd.DataFrame(survey_df.groupby(["gender"])["age"].count())
+        df = df.rename(columns={"age": "percentage"})
+        df["percentage"] = df["percentage"].round(2) * 100
+    else:
+        df = df.rename(columns={"age": "number"})
     if not include_other:
-        percentage_cat = percentage_cat.drop("Other")
-    return percentage_cat
+        df = df.drop(0)
+    if not include_man:
+        df = df.drop("Man")
+    return df
 
 
-def location_scatterplot(percentage_cat, num_by_col=5):
+def location_scatterplot(survey_df, num_by_col=5, include_other=True, include_man=True, do_percentage=True):
     """
-    :param percentage_cat: the result of the function data_gender_rating
+    :param do_percentage:
+    :param include_man:
+    :param include_other:
+    :param survey_df:
     :param num_by_col: The number of points by row in each column of mental health rating. Default value is 5
     :return: The location (x,y) for all the points in the graph
     """
+    percentage_cat = data_gender_rating(survey_df, include_other=include_other, include_man=include_man,
+                                        do_percentage=do_percentage)
     # Columns of our new data frame
     columns = ["gender", "mental_health", "order", "x", "y"]
     # Number of genders
     number_gender = len(percentage_cat.groupby(level=0))
     # The order of genders in the scatter plot
     if number_gender == 3:
-        order = {"Woman": 0, "Other": 1, "Man": 2}
-    else:
+        order = {"Woman": 0, "0": 1, "Man": 2}
+    elif number_gender == 2:
         order = {"Woman": 0, "Man": 1}
+    else:
+        order = {"Woman": 0}
     # Create an empty dataframe
     point_location = pd.DataFrame(columns=columns)
     for index, percentage in percentage_cat.iterrows():
@@ -51,8 +67,48 @@ def location_scatterplot(percentage_cat, num_by_col=5):
                                                     "x": x_location,
                                                     "y": y_location}, ignore_index=True)
     # The place in the mental health column + Adding a shift for the mental health + Adding a shift for the gender
-    point_location["x"] = point_location["x"] + point_location["mental_health"] * (num_by_col + space_between_rating) + point_location["order"] * ((num_by_col + space_between_rating) * nb_ratings + space_between_gender)
+    point_location["x"] = point_location["x"] + point_location["mental_health"] * (num_by_col + space_between_rating) + point_location["order"] * (
+                                  (num_by_col + space_between_rating) * nb_ratings + space_between_gender)
     return point_location
+
+
+def testimonial_treatment(testimonial_df, maximum_total_length, maximum_line_length, minimum_total_length):
+    """
+    :param testimonial_df: the testimonial data in the other of appearance. Columns should be "gender", "mental_scale","testimonial"
+    :param maximum_total_length: Maximum length of testimonial
+    :param maximum_line_length: Maximum length of the line on hover
+    :param minimum_total_length: Minimum length of testimonial
+    :return: the testimonial data with column "testimonials_short", "display_testimonial"
+    """
+    testimonials_short = []
+    for text in testimonial_df["testimonial"]:
+        if isinstance(text, int):
+            testimonials_short.append(0)
+        elif len(text) < minimum_total_length:
+            testimonials_short.append(0)
+        else:
+            text_shortened = textwrap.shorten(text, width=maximum_total_length)
+            # ADDING BREAKS FOR HOVER PLOT !
+            text_shortened_wrapped = "<br>".join(textwrap.wrap(text_shortened, width=maximum_line_length))
+            testimonials_short.append(text_shortened_wrapped)
+    testimonial_df["testimonials_short"] = testimonials_short
+    testimonial_df["display_testimonial"] = np.where(testimonial_df["testimonials_short"] == 0, 0, 1)
+    return testimonial_df
+
+
+def merge_testimonials(location_data, testimonial_data, include_other=True):
+    """
+    :param location_data: the result of the function location scatter plot
+    :param testimonial_data: the testimonial data in the other of appearance. Columns should be "gender", "mental_scale","testimonial", "testimonials_short", "display_testimonial"
+    :param include_other: should it include the gender "other"
+    :return: df with 7 columns : result of the location data + column "testimonial", "display_testimonial"
+    """
+    if not include_other:
+        testimonial_data = testimonial_data.loc[testimonial_data.gender != 0]
+    testimonial_data = testimonial_data.sort_values(["gender", "mental_scale"]).reset_index(drop=True)
+    data = location_data.merge(testimonial_data[["testimonials_short", "display_testimonial"]], right_index=True,
+                               left_index=True)
+    return data
 
 
 def draw_scatterbarplot(survey_df, num_by_col=5, include_other=True):
@@ -62,9 +118,18 @@ def draw_scatterbarplot(survey_df, num_by_col=5, include_other=True):
     :param num_by_col: The number of points by row in each column of mental health rating. Default value is 5
     :return: the scatterbarplot
     """
-    prepared_data = data_gender_rating(survey_df, include_other=include_other)
-    location_df = location_scatterplot(prepared_data, num_by_col)
-    number_gender = len(prepared_data.groupby(level=0))
+    # prepared_data = data_gender_rating(survey_df, include_other=include_other)
+    # location_df = location_scatterplot(prepared_data, num_by_col)
+
+    location_df = pd.read_csv(
+        "/Users/ameliemeurer/Documents/Amélie/HEC M2/07. Research Paper - UN Women/02. Code/domestic_violence_covid-19/typeform/data_scatterplot.csv")
+    # The data with testimonial
+    data_testimonial = location_df.loc[location_df.display_testimonial == 1]
+    # The data without the testimonial
+    data_without_testimonial = location_df.loc[location_df.display_testimonial == 0]
+
+    number_gender = len(location_df.gender.unique())
+
     # Position of the grading of mental health
     start_position1 = np.median(range(num_by_col))
     start_position2 = (num_by_col + space_between_rating) * nb_ratings + space_between_gender + start_position1
@@ -102,18 +167,23 @@ def draw_scatterbarplot(survey_df, num_by_col=5, include_other=True):
     if number_gender == 3:
         big_line_position = big_line_position + [nb_ratings * (num_by_col + 1) * 2 + space_between_gender]
 
-    # Color
-    if number_gender == 3:
-        color_sequence = ["black", "white", "pink"]  # has to be same order as index, so men, other, women
-    else:
-        color_sequence = ["white", "pink"]
+    fig = go.Figure()
 
-    # Graph
-    fig = px.scatter(location_df, x="x",
-                     y="y", color="gender",
-                     color_discrete_sequence=color_sequence)
+    # Graph: without the testimonials (no hover, no color)
+    fig.add_trace(go.Scatter(x=data_without_testimonial.x,
+                             y=data_without_testimonial.y,
+                             mode='markers',
+                             marker=dict(color="white"),
+                             hovertemplate=None,
+                             hoverinfo='skip'))
 
-    fig.update_traces(hovertemplate=None, hoverinfo='skip')
+    # Graph: the testimonials (hover, color)
+    fig.add_trace(go.Scatter(x=data_testimonial.x,
+                             y=data_testimonial.y,
+                             mode='markers',
+                             marker=dict(color="#d80052"),
+                             text=data_testimonial.testimonials_short,
+                             hovertemplate="%{text}" + "<extra></extra>"))
 
     # Mental health grade
     fig.add_trace(go.Scatter(
