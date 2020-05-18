@@ -2,13 +2,17 @@ import pandas as pd
 import plotly.graph_objects as go
 import numpy as np
 import warnings
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 warnings.filterwarnings("ignore", 'This pattern has match groups')
 pd.options.mode.chained_assignment = None  # default='warn'
 
 FAMILY = "PT Sans"
-token = "pk.eyJ1IjoiYW1lbWV1cmVyIiwiYSI6ImNrOHBxdHFmMTBqN2MzZ25sY3c1eHk4ZmoifQ.He4E-itQVmRV4znQMhXTjw"
-style_url = "mapbox://styles/amemeurer/ck8rg6v0k164o1inv1mttdq10"
+MAPBOX_TOKEN = os.getenv("MAPBOX_TOKEN")
+MAPBOX_STYLE_URL = os.getenv("MAPBOX_STYLE_URL")
 
 
 def postal_code_treatment(survey_data, postal_code_col="postal_code"):
@@ -190,7 +194,7 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
             lat=all_reports_df.latitude,
             lon=all_reports_df.longitude,
             mode='markers',
-            hovertemplate="<b>We have %{marker.size:,} reports from %{text} during the lockdown</b><br>" +
+            hovertemplate="<b>%{marker.size:,} reports from %{text}</b>" +
                           "%{customdata[0]}" +
                           "%{customdata[1]}" +
                           "%{customdata[2]}" +
@@ -294,8 +298,8 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
         height=580,  # height of the graph
         plot_bgcolor='rgba(0,0,0,0)',
         margin=dict(l=20, r=30, t=20, b=20),
-        mapbox=dict(accesstoken=token,
-                    style=style_url,
+        mapbox=dict(accesstoken=MAPBOX_TOKEN,
+                    style=MAPBOX_STYLE_URL,
                     center=go.layout.mapbox.Center(lat=54.237933, lon=-2.36967),
                     zoom=4.5  # add a zoom of size of great britain
                     ),
