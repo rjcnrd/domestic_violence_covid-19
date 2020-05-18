@@ -7,17 +7,16 @@ def sankey_graph():
     subdf=sankey_df
     
     living_dim = go.parcats.Dimension(
-        values=subdf.living_category_var_names_emojis,
+        values=subdf.living_category_var_names,
         categoryorder='category ascending', label="I am living with... ", ticktext=['perished', 'survived', '', '', '', '', '']
     )
 
     household_dim = go.parcats.Dimension(values=subdf.housework_mapped, label="I take care of ...",
-                                        categoryarray=[0, 1, 2, 3, 4],
-                                        ticktext=['all the <br> housework',  
-                                                    'most of <br> the housework',
-                                                'as much <br> housework as others',
-                                                'less housework <br> than others',
-                                                'none of <br> the housework']
+                                        categoryarray=[0, 1, 2],
+                                        ticktext=['all or most<br>of the <br>housework',  
+                                                'as much<br>housework<br>as others',
+                                                'less then other or none of the housework',
+                                                ]
                                         )
 
 
@@ -29,7 +28,7 @@ def sankey_graph():
         dimensions=[living_dim, household_dim],
 
         line={'color': color, 'colorscale': colorscale},
-        hoveron='color', hoverinfo='count+probability',
+        hoveron='color', hoverinfo='count',
         # labelfont={'size': 18, 'family': 'Times'},
         #tickfont={'size': 16, 'family': 'Times'},
 
