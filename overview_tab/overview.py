@@ -6,9 +6,13 @@ from overview_tab.map_graph import map_graph
 from overview_tab.cumulative_nb_report import cumulative_graph
 from overview_tab.survivors_report import first_time_assault_count, first_time_assault_percentage, agressor
 
+from overview_tab.sankey import sankey_graph
+
 
 def create_overview_tab(survey_df, new_data, postal_code_df, countries_df, map_threshold, big_bubble_size, small_bubble_size):
-    tab_content = dbc.Row([
+    tab_content =  html.Div([
+
+    dbc.Row([
         # Column 1: Left Side
         dbc.Col([
             html.H4(children=html.Span("Women all over the UK are experiencing difficulties during COVID-19", className="graph-heading-span"),
@@ -55,6 +59,19 @@ def create_overview_tab(survey_df, new_data, postal_code_df, countries_df, map_t
                 ])
             ])
         ], md=6)
+
+    ]),
+
+    dbc.Row(
+        dbc.Col([
+        html.H4(html.Span("Sankey", className="graph-heading-span")),
+        dcc.Graph(figure=sankey_graph())
+
+        ],md=12)
+        
+       )
+    
+    
     ])
 
     return tab_content

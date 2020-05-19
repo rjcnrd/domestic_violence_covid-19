@@ -2,13 +2,17 @@ import pandas as pd
 import plotly.graph_objects as go
 import numpy as np
 import warnings
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 warnings.filterwarnings("ignore", 'This pattern has match groups')
 pd.options.mode.chained_assignment = None  # default='warn'
 
 FAMILY = "PT Sans"
-token = "pk.eyJ1IjoiYW1lbWV1cmVyIiwiYSI6ImNrOHBxdHFmMTBqN2MzZ25sY3c1eHk4ZmoifQ.He4E-itQVmRV4znQMhXTjw"
-style_url = "mapbox://styles/amemeurer/ck8rg6v0k164o1inv1mttdq10"
+MAPBOX_TOKEN = os.getenv("MAPBOX_TOKEN")
+MAPBOX_STYLE_URL = os.getenv("MAPBOX_STYLE_URL")
 
 
 def postal_code_treatment(survey_data, postal_code_col="postal_code"):
@@ -171,18 +175,39 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
         "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_working_situation.csv")
 
     # Text for hover
-    all_reports_df["safety_text"] = np.where(all_reports_df["safety_level"] == 0, "",
-                                             all_reports_df["safety_level"].map(
-                                                 "<br><i>{}</i> report to feel unsafe".format))
-    all_reports_df["safety_change_text"] = np.where(all_reports_df["safety_change"] == 0, "",
-                                                    all_reports_df["safety_change"].map(
-                                                        "<br><i>{}</i> report feeling less safe".format))
-    all_reports_df["mental_scale_text"] = np.where(all_reports_df["mental_scale"] == 0, "",
-                                                   all_reports_df["mental_scale"].map(
-                                                       "<br><i>{}</i> report low mental health".format))
-    all_reports_df["work_situation_text"] = np.where(all_reports_df["work_situation"] == 0, "",
-                                                     all_reports_df["work_situation"].map(
-                                                         "<br><i>{}</i> report that they had to stop working".format))
+    all_reports_df["overall_text"] = np.where(all_reports_df["all_reports"] == 1,
+                                              all_reports_df["all_reports"].map("<b>{} report from ".format) +
+                                              all_reports_df["area_name"].map("{} </b>".format),
+                                              all_reports_df["all_reports"].map("<b>{} reports from ".format) +
+                                              all_reports_df["area_name"].map("{} </b>".format))
+    all_reports_df["safety_text"] = np.where(all_reports_df["safety_level"] == 0,
+                                             "",
+                                             np.where(all_reports_df["safety_level"] == 1,
+                                                      all_reports_df["safety_level"].map(
+                                                          "<br><i>{}</i> reports to feel unsafe".format),
+                                                      all_reports_df["safety_level"].map(
+                                                          "<br><i>{}</i> report to feel unsafe".format)))
+    all_reports_df["safety_change_text"] = np.where(all_reports_df["safety_change"] == 0,
+                                                    "",
+                                                    np.where(all_reports_df["safety_change"] == 1,
+                                                             all_reports_df["safety_change"].map(
+                                                                 "<br><i>{}</i> reports feeling less safe".format),
+                                                             all_reports_df["safety_change"].map(
+                                                                 "<br><i>{}</i> report feeling less safe".format)))
+    all_reports_df["mental_scale_text"] = np.where(all_reports_df["mental_scale"] == 0,
+                                                   "",
+                                                   np.where(all_reports_df["mental_scale"] == 1,
+                                                            all_reports_df["mental_scale"].map(
+                                                                "<br><i>{}</i> reports low mental health".format),
+                                                            all_reports_df["mental_scale"].map(
+                                                                "<br><i>{}</i> report low mental health".format)))
+    all_reports_df["work_situation_text"] = np.where(all_reports_df["work_situation"] == 0,
+                                                     "",
+                                                     np.where(all_reports_df["work_situation"] == 1,
+                                                              all_reports_df["work_situation"].map(
+                                                                  "<br><i>{}</i> reports that they had to stop working".format),
+                                                              all_reports_df["work_situation"].map(
+                                                                  "<br><i>{}</i> report that they had to stop working".format)))
 
     # All reports
     fig = go.Figure(
@@ -190,18 +215,18 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
             lat=all_reports_df.latitude,
             lon=all_reports_df.longitude,
             mode='markers',
-            hovertemplate="<b>We have %{marker.size:,} reports from %{text} during the lockdown</b><br>" +
-                          "%{customdata[0]}" +
+            hovertemplate="%{customdata[0]}" +
                           "%{customdata[1]}" +
                           "%{customdata[2]}" +
                           "%{customdata[3]}" +
+                          "%{customdata[4]}" +
                           "<extra></extra>",
-            text=all_reports_df.area_name,
             hoverlabel=dict(bgcolor='#eceded',
                             bordercolor='#eceded',
                             font=dict(color="rgb(68, 68, 68)", size=11)),
-            customdata=np.stack((all_reports_df["safety_text"], all_reports_df["safety_change_text"],
-                                 all_reports_df["mental_scale_text"], all_reports_df["work_situation_text"]), axis=-1),
+            customdata=np.stack(
+                (all_reports_df["overall_text"], all_reports_df["safety_text"], all_reports_df["safety_change_text"],
+                 all_reports_df["mental_scale_text"], all_reports_df["work_situation_text"]), axis=-1),
             marker=go.scattermapbox.Marker(
                 sizeref=big_bubble_size,
                 size=all_reports_df.all_reports,
@@ -294,8 +319,8 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
         height=580,  # height of the graph
         plot_bgcolor='rgba(0,0,0,0)',
         margin=dict(l=20, r=30, t=20, b=20),
-        mapbox=dict(accesstoken=token,
-                    style=style_url,
+        mapbox=dict(accesstoken=MAPBOX_TOKEN,
+                    style=MAPBOX_STYLE_URL,
                     center=go.layout.mapbox.Center(lat=54.237933, lon=-2.36967),
                     zoom=4.5  # add a zoom of size of great britain
                     ),
