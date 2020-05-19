@@ -180,30 +180,30 @@ def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble
                                              "",
                                              np.where(all_reports_df["safety_level"] == 1,
                                                       all_reports_df["safety_level"].map(
-                                                          "<br><i>{}</i> report to feel unsafe".format),
+                                                          "<br><i>{}</i> reports to feel unsafe".format),
                                                       all_reports_df["safety_level"].map(
-                                                          "<br><i>{}</i> reports to feel unsafe".format)))
+                                                          "<br><i>{}</i> report to feel unsafe".format)))
     all_reports_df["safety_change_text"] = np.where(all_reports_df["safety_change"] == 0,
                                                     "",
                                                     np.where(all_reports_df["safety_change"] == 1,
                                                              all_reports_df["safety_change"].map(
-                                                                 "<br><i>{}</i> report feeling less safe".format),
+                                                                 "<br><i>{}</i> reports feeling less safe".format),
                                                              all_reports_df["safety_change"].map(
-                                                                 "<br><i>{}</i> reports feeling less safe".format)))
+                                                                 "<br><i>{}</i> report feeling less safe".format)))
     all_reports_df["mental_scale_text"] = np.where(all_reports_df["mental_scale"] == 0,
                                                    "",
                                                    np.where(all_reports_df["mental_scale"] == 1,
                                                             all_reports_df["mental_scale"].map(
-                                                                "<br><i>{}</i> report low mental health".format),
+                                                                "<br><i>{}</i> reports low mental health".format),
                                                             all_reports_df["mental_scale"].map(
-                                                                "<br><i>{}</i> reports low mental health".format)))
+                                                                "<br><i>{}</i> report low mental health".format)))
     all_reports_df["work_situation_text"] = np.where(all_reports_df["work_situation"] == 0,
                                                      "",
                                                      np.where(all_reports_df["work_situation"] == 1,
                                                               all_reports_df["work_situation"].map(
-                                                                  "<br><i>{}</i> report that they had to stop working".format),
+                                                                  "<br><i>{}</i> reports that they had to stop working".format),
                                                               all_reports_df["work_situation"].map(
-                                                                  "<br><i>{}</i> reports that they had to stop working".format)))
+                                                                  "<br><i>{}</i> report that they had to stop working".format)))
 
     # All reports
     fig = go.Figure(
