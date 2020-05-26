@@ -84,15 +84,16 @@ def testimonial_treatment(testimonial_df, maximum_total_length, maximum_line_len
     :return: the testimonial data with column "testimonials_short", "display_testimonial"
     """
     testimonials_short = []
-    for text in testimonial_df["testimonial"]:
+    for text in testimonial_df["selected_testimonial"]:
         if isinstance(text, int):
             testimonials_short.append(0)
         elif len(text) < minimum_total_length:
             testimonials_short.append(0)
         else:
-            text_shortened = textwrap.shorten(text, width=maximum_total_length)
+            if maximum_total_length is not None:
+                text = textwrap.shorten(text, width=maximum_total_length)
             # ADDING BREAKS FOR HOVER PLOT !
-            text_shortened_wrapped = "<br>".join(textwrap.wrap(text_shortened, width=maximum_line_length))
+            text_shortened_wrapped = "<br>".join(textwrap.wrap(text, width=maximum_line_length))
             testimonials_short.append(text_shortened_wrapped)
     testimonial_df["testimonials_short"] = testimonials_short
     testimonial_df["display_testimonial"] = np.where(testimonial_df["testimonials_short"] == 0, 0, 1)
