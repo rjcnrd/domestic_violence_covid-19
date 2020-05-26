@@ -20,6 +20,8 @@ def data_gender_rating(survey_df, do_percentage=True, mental_health_col="mental_
     One column "percentage" with the the percentage of people in each mental health category, by gender
     """
     df = pd.DataFrame(survey_df.groupby(["gender", mental_health_col])["age"].count())
+    # drop the people that dont answer about the gender
+    df = df.drop(0)
     if do_percentage:
         df = df / pd.DataFrame(survey_df.groupby(["gender"])["age"].count())
         df = df.rename(columns={"age": "percentage"})
@@ -27,7 +29,7 @@ def data_gender_rating(survey_df, do_percentage=True, mental_health_col="mental_
     else:
         df = df.rename(columns={"age": "number"})
     if not include_other:
-        df = df.drop(0)
+        df = df.drop("Non-binary / other")
     if not include_man:
         df = df.drop("Man")
     return df
@@ -50,7 +52,7 @@ def location_scatterplot(survey_df, num_by_col=5, include_other=True, include_ma
     number_gender = len(percentage_cat.groupby(level=0))
     # The order of genders in the scatter plot
     if number_gender == 3:
-        order = {"Woman": 0, "0": 1, "Man": 2}
+        order = {"Woman": 0, "Non-binary / other": 1, "Man": 2}
     elif number_gender == 2:
         order = {"Woman": 0, "Man": 1}
     else:
@@ -67,7 +69,8 @@ def location_scatterplot(survey_df, num_by_col=5, include_other=True, include_ma
                                                     "x": x_location,
                                                     "y": y_location}, ignore_index=True)
     # The place in the mental health column + Adding a shift for the mental health + Adding a shift for the gender
-    point_location["x"] = point_location["x"] + point_location["mental_health"] * (num_by_col + space_between_rating) + point_location["order"] * (
+    point_location["x"] = point_location["x"] + point_location["mental_health"] * (num_by_col + space_between_rating) + \
+                          point_location["order"] * (
                                   (num_by_col + space_between_rating) * nb_ratings + space_between_gender)
     return point_location
 
