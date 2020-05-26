@@ -22,7 +22,7 @@ def create_statistics_tab(survey_df, new_data):
             html.H4(children=html.Span('This is how you rate your mental heath during the lockdown',
                                        className="graph-heading-span"),
                     className="graph-heading"),
-            html.Div([dcc.Graph(figure=draw_scatterbarplot(new_data, num_by_col=3, include_other=True), responsive=True
+            html.Div([dcc.Graph(figure=draw_scatterbarplot(new_data, num_by_col=5, include_other=True), responsive=True
                                 )], style={'display': 'inline-block', 'width': '100%'})
         ]
         )])
