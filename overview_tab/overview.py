@@ -8,7 +8,7 @@ from overview_tab.survivors_report import first_time_assault_count, first_time_a
 
 
 
-def create_overview_tab(survey_df, new_data, postal_code_df, countries_df, map_threshold, big_bubble_size, small_bubble_size):
+def create_overview_tab(survey_df, new_data, postal_code_df, countries_df, big_bubble_size, small_bubble_size):
     tab_content =  html.Div([
 
     dbc.Row([
@@ -20,7 +20,7 @@ def create_overview_tab(survey_df, new_data, postal_code_df, countries_df, map_t
             html.Div(children=[
                 html.Div(children=[
                     dcc.Graph(figure=map_graph(
-                        new_data, postal_code_df, countries_df, map_threshold, big_bubble_size, small_bubble_size))])
+                        new_data, postal_code_df, countries_df, big_bubble_size, small_bubble_size))])
 
             ])
         ], md=6),

@@ -11,12 +11,17 @@ from testimonials_tab.testimonials import create_testimonials_tab
 # DATA
 survey_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/dummy_data_new.csv", index_col=0)
 new_data = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/dummy_final_survey_real_postcode_answers.csv", index_col=0)
+
 # geo data
+## UK Postal codes
 postal_code_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/postcode_uk.csv")
+## International countries
 countries_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/countries.csv")
+
 # variables for map chart
-MAP_THRESHOLD = 2
+## Bubble size on the map graph (the bigger the number, the smaller the bubble). Size of markers for the first layer of the map graph (the overview)
 BIG_BUBBLE_SIZE = 0.1
+## Size for the other layers of the graph
 SMALL_BUBBLE_SIZE = 0.01
 
 # TAB STYLING
@@ -58,7 +63,7 @@ def create_layout():
 
             dcc.Tab(label='OVERVIEW', children=[
                 dbc.Container(
-                    create_overview_tab(survey_df, new_data, postal_code_df, countries_df, MAP_THRESHOLD, BIG_BUBBLE_SIZE, SMALL_BUBBLE_SIZE))
+                    create_overview_tab(survey_df, new_data, postal_code_df, countries_df, BIG_BUBBLE_SIZE, SMALL_BUBBLE_SIZE))
             ],
                 style=TAB_STYLE,
                 selected_style=SELECTED_STYLE),
