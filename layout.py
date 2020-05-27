@@ -8,34 +8,24 @@ from overview_tab.overview import create_overview_tab
 from statistics_tab.statistics import create_statistics_tab
 from testimonials_tab.testimonials import create_testimonials_tab
 
-# DATA IN - dummy for now
-survey_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/dummy_data_new.csv",
-                        index_col=0)
-
-new_data = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/dummy_final_survey_real_postcode_answers.csv", index_col = 0)
-
-# DATA Postal Code - in the git for now
+# DATA
+survey_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/dummy_data_new.csv", index_col=0)
+new_data = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/dummy_final_survey_real_postcode_answers.csv", index_col=0)
+# geo data
 postal_code_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/postcode_uk.csv")
-
-# International Postal codes
 countries_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/countries.csv")
+# variables for map chart
+MAP_THRESHOLD = 2
+BIG_BUBBLE_SIZE = 0.1
+SMALL_BUBBLE_SIZE = 0.01
 
-# Threshold for plotting the data in the graph // This is actually decided in the notebook now
-map_threshold = 2
-
-# Bubble size on the map graph (the bigger the smaller the bubble). Size for the first layer of the map graph (the overview)
-big_bubble_size = 0.1
-
-# Bubble size on the map graph (the bigger the smaller the bubble). Size for the other layers of the graph
-small_bubble_size = 0.01
-
-# TAB STYLE IS EQUAL  to H3 in default style
+# TAB STYLING
 TAB_STYLE = {
     'background': '#00a0dd',
     'color': 'white',
     'border': 'none',
     'border-top': 'none',
-    'font-family':'BUKA',
+    'font-family': 'BUKA',
     'font-size': '6rem',
     'text-transform': 'uppercase',
     'letter-spacing': ' 3px',
@@ -50,7 +40,7 @@ SELECTED_STYLE = {
     'color': '#d80052',
     'border-top': 'none',
     'border': 'none',
-      'font-family':'BUKA',
+    'font-family': 'BUKA',
     'font-size': '6rem',
     'text-transform': 'uppercase',
     'letter-spacing': ' 3px',
@@ -68,22 +58,24 @@ def create_layout():
 
             dcc.Tab(label='OVERVIEW', children=[
                 dbc.Container(
-                    create_overview_tab(survey_df, new_data, postal_code_df, countries_df, map_threshold, big_bubble_size, small_bubble_size))
+                    create_overview_tab(survey_df, new_data, postal_code_df, countries_df, MAP_THRESHOLD, BIG_BUBBLE_SIZE, SMALL_BUBBLE_SIZE))
             ],
-                    style=TAB_STYLE,
-                    selected_style=SELECTED_STYLE),
+                style=TAB_STYLE,
+                selected_style=SELECTED_STYLE),
 
             dcc.Tab(label='STATISTICS',
-                    children=dbc.Container(create_statistics_tab(survey_df, new_data)),
+                    children=dbc.Container(
+                        create_statistics_tab(survey_df, new_data)),
                     style=TAB_STYLE,
                     selected_style=SELECTED_STYLE),
 
             dcc.Tab(label='TESTIMONIALS',
                     children=[
-                        dbc.Container(create_testimonials_tab(survey_df), className="testimonialsFrame")
+                        dbc.Container(create_testimonials_tab(
+                            survey_df), className="testimonialsFrame")
                     ],
                     style=TAB_STYLE,
                     selected_style=SELECTED_STYLE),
         ])
-    ],className="DashContent")
+    ], className="DashContent")
     return layout

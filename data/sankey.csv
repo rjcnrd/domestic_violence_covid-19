@@ -1,301 +1,382 @@
 ,live_alone,live_friends,live_partner,live_parents,live_siblings,live_otherfamily,live_children,live_other,housework_amount,living_category,housework_mapped,living_category_var_names,living_category_var_names_emojis
-1,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-2,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-3,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-4,0,1,0,0,0,0,0,0,I take care of most of the housework,friends_only,0,...friends,Friends 🎲🏘🍷
-5,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-6,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-7,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-8,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-9,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-10,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-11,0,0,1,0,0,1,1,0,We share it equally,0,1,Other,Other 🦄
-12,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-13,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-14,0,0,1,0,0,0,1,0,I do less housework than others,live_with_partner_and_children_only,2,... partner and children,partner and children 🧒👭👶
-15,0,0,0,0,0,0,1,0,We share it equally,live_with_children_only,1,.. alone <br> with children,children 👶🧸
-17,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-18,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-19,0,0,0,0,1,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-20,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-21,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-22,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-23,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-24,0,1,1,0,0,0,0,0,I take care of most of the housework,0,0,Other,Other 🦄
-25,0,0,0,0,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-26,0,0,0,0,0,1,0,0,I take care of all the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-27,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-28,0,0,0,0,0,1,0,0,I take care of all the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-29,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-30,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-31,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-32,0,0,0,0,0,0,1,0,I take care of most of the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-33,0,0,1,1,0,1,1,0,I am not doing any housework,0,2,Other,Other 🦄
-34,0,0,1,0,0,0,1,0,I am not doing any housework,live_with_partner_and_children_only,2,... partner and children,partner and children 🧒👭👶
-35,0,0,0,0,0,0,1,0,I do less housework than others,live_with_children_only,2,.. alone <br> with children,children 👶🧸
-36,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-37,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-38,0,0,1,1,1,0,1,0,We share it equally,0,1,Other,Other 🦄
-40,0,0,1,1,0,0,1,0,I do less housework than others,0,2,Other,Other 🦄
-41,0,0,0,1,0,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-42,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-43,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-44,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-45,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
-46,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-47,0,0,1,1,0,0,1,0,I take care of most of the housework,0,0,Other,Other 🦄
-48,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-50,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-51,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-52,0,0,0,0,0,0,1,0,We share it equally,live_with_children_only,1,.. alone <br> with children,children 👶🧸
-53,0,1,0,0,0,0,0,0,I do less housework than others,friends_only,2,...friends,Friends 🎲🏘🍷
-54,0,0,0,0,0,1,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-55,0,0,0,1,0,0,0,0,0,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-56,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-57,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-58,0,0,0,0,0,1,0,0,I take care of all the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-59,0,0,1,0,0,0,1,0,I do less housework than others,live_with_partner_and_children_only,2,... partner and children,partner and children 🧒👭👶
-60,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-62,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-63,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-64,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-65,0,0,0,0,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-66,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-67,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-68,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-69,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-70,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-71,0,0,0,0,0,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-72,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-73,0,0,0,1,1,1,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-74,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-75,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-76,0,0,0,1,1,0,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-77,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-78,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-79,0,0,0,0,0,0,1,1,I take care of most of the housework,0,0,Other,Other 🦄
-80,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-81,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
-82,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-83,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-85,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-86,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-87,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-88,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-89,0,0,0,0,0,0,0,1,We share it equally,0,1,Other,Other 🦄
-90,0,0,1,1,1,1,0,0,I do less housework than others,0,2,Other,Other 🦄
-91,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-92,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-93,0,0,1,0,0,1,1,0,We share it equally,0,1,Other,Other 🦄
-94,0,0,0,1,0,0,0,0,0,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-95,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-96,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-97,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
-98,0,0,0,0,0,0,1,0,I take care of most of the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-99,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-100,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-101,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-103,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-104,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-105,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
-106,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-107,0,0,1,0,0,0,0,1,We share it equally,0,1,Other,Other 🦄
-108,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-109,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-110,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-111,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-112,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-114,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-116,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-117,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-118,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-120,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-121,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-122,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-123,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-124,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-125,0,0,0,1,0,0,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-126,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-128,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-129,0,0,0,0,0,0,0,1,I take care of all the housework,0,0,Other,Other 🦄
-130,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-131,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-133,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-134,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-136,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-137,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-139,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-142,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-143,0,0,1,0,0,0,0,0,I am not doing any housework,live_with_partner_only,2,...their partner,a partner 💞
-144,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-145,0,0,0,0,0,0,0,1,I do less housework than others,0,2,Other,Other 🦄
-146,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-147,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-148,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-149,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-150,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-151,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-153,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-154,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-155,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-156,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-157,0,0,0,1,0,0,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-159,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-160,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-161,0,0,1,1,0,0,1,0,I take care of all the housework,0,0,Other,Other 🦄
-162,0,0,0,0,0,0,1,0,I take care of most of the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-163,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-164,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-165,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-166,0,1,0,0,0,0,0,0,I take care of all the housework,friends_only,0,...friends,Friends 🎲🏘🍷
-168,0,0,0,0,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-169,0,0,0,0,1,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-170,0,0,0,1,0,0,0,0,I take care of all the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-171,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-172,0,0,0,1,0,0,1,0,We share it equally,0,1,Other,Other 🦄
-173,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-174,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-175,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-176,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-177,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-178,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-179,0,0,1,0,0,1,1,0,We share it equally,0,1,Other,Other 🦄
-180,0,1,0,0,0,0,0,0,I take care of most of the housework,friends_only,0,...friends,Friends 🎲🏘🍷
-181,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-182,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-183,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-184,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-185,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-186,0,0,1,1,0,0,0,0,I do less housework than others,0,2,Other,Other 🦄
-187,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-188,0,0,0,0,0,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-189,0,0,1,0,0,0,0,1,I take care of most of the housework,0,0,Other,Other 🦄
-190,0,0,0,1,1,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-192,0,0,1,1,0,0,0,0,I take care of most of the housework,0,0,Other,Other 🦄
-195,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+0,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+1,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+4,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+6,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+8,0,1,0,0,1,0,0,0,We share it equally,0,1,Other,Other 🦄
+9,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+10,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+11,0,0,0,1,1,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+13,0,0,1,1,0,0,0,0,We share it equally,0,1,Other,Other 🦄
+14,0,0,0,0,0,0,0,1,I take care of all the housework,0,0,Other,Other 🦄
+15,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+16,0,0,0,0,0,1,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+18,0,0,1,1,0,0,0,0,We share it equally,0,1,Other,Other 🦄
+20,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+21,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+22,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+23,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+24,0,0,0,0,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+25,0,0,0,0,1,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+26,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+28,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+30,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
+31,0,0,0,1,1,0,0,1,I take care of most of the housework,0,0,Other,Other 🦄
+35,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+36,0,0,1,0,0,0,1,1,I take care of all the housework,0,0,Other,Other 🦄
+37,0,0,1,0,0,1,0,0,We share it equally,0,1,Other,Other 🦄
+39,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
+40,0,0,0,1,1,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+41,0,0,0,1,1,0,0,0,I take care of all the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+42,0,0,0,0,0,0,0,1,We share it equally,0,1,Other,Other 🦄
+44,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+45,0,0,0,0,0,1,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+46,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+47,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+48,0,1,0,0,0,0,0,0,I take care of most of the housework,friends_only,0,...friends,Friends 🎲🏘🍷
+49,0,0,0,1,0,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+50,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+55,0,0,0,1,1,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+56,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+57,0,0,1,0,0,0,0,0,I do less housework than others,live_with_partner_only,2,...their partner,a partner 💞
+60,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+63,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+66,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+68,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+70,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+73,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+75,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+76,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+78,0,1,1,0,0,0,0,0,I take care of all the housework,0,0,Other,Other 🦄
+79,0,1,0,0,0,0,0,0,I do less housework than others,friends_only,2,...friends,Friends 🎲🏘🍷
+80,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+83,0,1,0,0,0,0,0,0,I take care of all the housework,friends_only,0,...friends,Friends 🎲🏘🍷
+84,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+85,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+86,0,0,0,1,1,1,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+88,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+92,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+93,0,0,1,1,1,0,0,0,We share it equally,0,1,Other,Other 🦄
+94,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+96,0,1,0,0,0,0,0,0,I take care of most of the housework,friends_only,0,...friends,Friends 🎲🏘🍷
+97,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+98,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+99,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+100,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+103,0,0,1,0,0,0,0,1,I take care of most of the housework,0,0,Other,Other 🦄
+104,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+105,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+107,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+112,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+113,0,0,1,1,1,0,0,0,We share it equally,0,1,Other,Other 🦄
+114,0,0,1,1,1,0,0,0,We share it equally,0,1,Other,Other 🦄
+115,0,0,1,1,1,0,0,0,I do less housework than others,0,2,Other,Other 🦄
+116,0,1,0,1,0,0,0,0,We share it equally,0,1,Other,Other 🦄
+125,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+127,0,0,0,0,0,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+128,0,0,0,1,0,0,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+129,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+133,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+134,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+137,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+140,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+144,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+145,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+146,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+147,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+148,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+152,0,0,1,0,0,0,0,0,I do less housework than others,live_with_partner_only,2,...their partner,a partner 💞
+153,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+154,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+155,0,0,1,0,0,0,1,0,I do less housework than others,live_with_partner_and_children_only,2,... partner  <br>and children,partner and children 🧒👭👶
+157,0,0,1,1,1,0,0,0,We share it equally,0,1,Other,Other 🦄
+158,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+161,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+164,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+166,0,0,1,1,1,0,0,0,I take care of most of the housework,0,0,Other,Other 🦄
+167,0,0,1,1,0,0,0,0,We share it equally,0,1,Other,Other 🦄
+171,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+172,0,0,0,1,1,0,0,0,I take care of all the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+173,0,0,0,1,1,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+177,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+178,0,0,0,1,1,0,0,1,I do less housework than others,0,2,Other,Other 🦄
+179,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+180,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+181,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+182,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+184,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+187,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+188,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+189,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+190,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+192,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+193,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+194,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+195,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
 196,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-197,0,1,1,0,0,0,0,0,We share it equally,0,1,Other,Other 🦄
-198,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-199,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-200,0,0,1,0,0,0,1,0,0,live_with_partner_and_children_only,2,... partner and children,partner and children 🧒👭👶
-202,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
-203,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-204,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-205,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-206,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-207,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-208,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-209,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-210,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-211,0,0,1,0,0,0,0,0,I do less housework than others,live_with_partner_only,2,...their partner,a partner 💞
-212,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
-213,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-214,0,0,0,0,0,1,1,0,I take care of all the housework,0,0,Other,Other 🦄
-215,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-218,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-220,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-221,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-223,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-224,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-225,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-226,0,0,1,0,0,0,0,0,I do less housework than others,live_with_partner_only,2,...their partner,a partner 💞
-227,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+197,0,1,0,0,0,0,0,0,I do less housework than others,friends_only,2,...friends,Friends 🎲🏘🍷
+198,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+199,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+200,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+201,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+202,0,0,0,0,0,0,0,1,We share it equally,0,1,Other,Other 🦄
+203,0,0,1,0,0,1,0,0,I take care of all the housework,0,0,Other,Other 🦄
+204,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+205,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+207,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+208,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+209,0,0,0,0,0,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+210,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+211,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+212,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+213,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+214,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+215,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+216,0,0,0,0,1,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+217,0,0,0,1,0,0,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+218,0,0,1,0,0,0,1,0,I do less housework than others,live_with_partner_and_children_only,2,... partner  <br>and children,partner and children 🧒👭👶
+219,0,0,0,0,0,1,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+220,0,0,1,0,0,0,0,1,I take care of most of the housework,0,0,Other,Other 🦄
+221,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+222,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+223,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+224,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+225,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+226,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+227,0,0,1,1,1,0,0,0,We share it equally,0,1,Other,Other 🦄
+228,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+229,0,0,0,0,0,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
 230,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-231,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+231,0,1,0,0,0,0,0,0,I take care of most of the housework,friends_only,0,...friends,Friends 🎲🏘🍷
 232,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-233,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-235,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
-238,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-240,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-241,0,0,0,1,1,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-242,0,0,1,0,0,0,0,0,I do less housework than others,live_with_partner_only,2,...their partner,a partner 💞
-243,0,1,1,0,0,0,0,0,We share it equally,0,1,Other,Other 🦄
-244,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-245,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-246,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-247,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
-248,0,0,0,1,1,0,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-249,0,0,0,1,0,0,1,0,I take care of most of the housework,0,0,Other,Other 🦄
-250,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
-251,0,0,0,0,0,0,1,0,I take care of most of the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-252,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-253,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-254,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-255,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+233,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+234,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
+235,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+236,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+238,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+239,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+240,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+241,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+242,0,0,0,0,0,1,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+244,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+245,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+246,0,0,0,1,1,0,0,1,I take care of most of the housework,0,0,Other,Other 🦄
+247,0,0,0,0,1,0,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+248,0,0,0,0,1,0,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+249,0,0,1,0,0,1,0,1,We share it equally,0,1,Other,Other 🦄
+251,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+252,0,0,0,1,0,0,1,0,We share it equally,0,1,Other,Other 🦄
+253,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+254,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+255,0,1,0,0,0,0,0,0,I take care of most of the housework,friends_only,0,...friends,Friends 🎲🏘🍷
 256,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-257,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-258,0,0,1,0,0,0,0,0,I do less housework than others,live_with_partner_only,2,...their partner,a partner 💞
-259,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-261,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-262,0,0,0,0,0,0,1,0,We share it equally,live_with_children_only,1,.. alone <br> with children,children 👶🧸
-263,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
-264,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-265,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-266,0,0,0,0,0,0,0,1,I do less housework than others,0,2,Other,Other 🦄
-267,0,0,0,1,1,0,0,1,We share it equally,0,1,Other,Other 🦄
-268,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-269,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-270,0,1,1,0,0,0,0,0,We share it equally,0,1,Other,Other 🦄
-271,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-272,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-273,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-275,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-276,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-277,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-279,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-280,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-282,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-283,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-284,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-285,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-286,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-287,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-288,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-289,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-290,0,0,0,1,0,1,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-293,0,0,1,1,0,0,1,0,I do less housework than others,0,2,Other,Other 🦄
-294,0,0,0,1,1,0,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-295,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-296,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-297,0,0,0,0,0,0,1,0,We share it equally,live_with_children_only,1,.. alone <br> with children,children 👶🧸
-298,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-299,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-300,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-301,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-302,0,0,0,0,0,0,1,0,I take care of most of the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-303,0,0,1,0,0,1,1,0,I take care of all the housework,0,0,Other,Other 🦄
-305,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-308,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-310,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-311,0,0,1,0,0,1,1,0,I take care of most of the housework,0,0,Other,Other 🦄
-312,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-313,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-315,0,0,1,0,0,1,0,0,I take care of most of the housework,0,0,Other,Other 🦄
-316,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-317,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-318,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-319,0,0,1,0,0,0,1,0,I do less housework than others,live_with_partner_and_children_only,2,... partner and children,partner and children 🧒👭👶
-320,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-321,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-322,0,0,0,0,0,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-323,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-324,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
-325,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
-326,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-327,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner and children,partner and children 🧒👭👶
+257,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+258,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+260,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+262,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+263,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+264,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+265,0,1,0,0,0,0,0,0,I take care of most of the housework,friends_only,0,...friends,Friends 🎲🏘🍷
+266,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+267,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+268,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+269,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+270,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+271,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+272,0,0,1,0,0,1,1,0,We share it equally,0,1,Other,Other 🦄
+273,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+274,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+275,0,0,1,0,0,0,1,0,I do less housework than others,live_with_partner_and_children_only,2,... partner  <br>and children,partner and children 🧒👭👶
+276,0,0,0,0,0,0,1,0,We share it equally,live_with_children_only,1,.. alone <br> with children,children 👶🧸
+278,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+279,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+280,0,0,0,0,1,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+281,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+282,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+283,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+284,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+285,0,1,1,0,0,0,0,0,I take care of most of the housework,0,0,Other,Other 🦄
+286,0,0,0,0,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+287,0,0,0,0,0,1,0,0,I take care of all the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+288,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+289,0,0,0,0,0,1,0,0,I take care of all the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+290,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+291,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+292,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+293,0,0,0,0,0,0,1,0,I take care of most of the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+294,0,0,1,1,0,1,1,0,I am not doing any housework,0,2,Other,Other 🦄
+295,0,0,1,0,0,0,1,0,I am not doing any housework,live_with_partner_and_children_only,2,... partner  <br>and children,partner and children 🧒👭👶
+296,0,0,0,0,0,0,1,0,I do less housework than others,live_with_children_only,2,.. alone <br> with children,children 👶🧸
+297,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+298,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+299,0,0,1,1,1,0,1,0,We share it equally,0,1,Other,Other 🦄
+301,0,0,1,1,0,0,1,0,I do less housework than others,0,2,Other,Other 🦄
+302,0,0,0,1,0,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+303,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+304,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+305,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+306,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
+307,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+308,0,0,1,1,0,0,1,0,I take care of most of the housework,0,0,Other,Other 🦄
+309,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+311,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+312,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+313,0,0,0,0,0,0,1,0,We share it equally,live_with_children_only,1,.. alone <br> with children,children 👶🧸
+314,0,1,0,0,0,0,0,0,I do less housework than others,friends_only,2,...friends,Friends 🎲🏘🍷
+315,0,0,0,0,0,1,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+316,0,0,0,1,0,0,0,0,0,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+317,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+318,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+319,0,0,0,0,0,1,0,0,I take care of all the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+320,0,0,1,0,0,0,1,0,I do less housework than others,live_with_partner_and_children_only,2,... partner  <br>and children,partner and children 🧒👭👶
+321,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+323,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+324,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+325,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+326,0,0,0,0,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+327,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
 328,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
-329,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
-330,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-334,0,0,0,0,0,0,1,0,I take care of most of the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
-337,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-339,0,0,1,0,0,0,1,1,I take care of all the housework,0,0,Other,Other 🦄
-341,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner and children,partner and children 🧒👭👶
-342,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-345,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-346,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-347,0,0,0,1,1,0,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
-350,0,0,1,1,0,0,1,0,I take care of all the housework,0,0,Other,Other 🦄
-352,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
-353,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
-354,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
-357,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+329,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+330,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+331,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+332,0,0,0,0,0,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+333,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+334,0,0,0,1,1,1,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+335,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+336,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+337,0,0,0,1,1,0,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+338,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+339,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+340,0,0,0,0,0,0,1,1,I take care of most of the housework,0,0,Other,Other 🦄
+341,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+342,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
+343,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+344,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+346,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+347,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+348,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+349,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+350,0,0,0,0,0,0,0,1,We share it equally,0,1,Other,Other 🦄
+351,0,0,1,1,1,1,0,0,I do less housework than others,0,2,Other,Other 🦄
+352,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+353,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+354,0,0,1,0,0,1,1,0,We share it equally,0,1,Other,Other 🦄
+355,0,0,0,1,0,0,0,0,0,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+356,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+357,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+358,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
+359,0,0,0,0,0,0,1,0,I take care of most of the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+360,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+361,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+362,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+364,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+365,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+366,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
+367,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+368,0,0,1,0,0,0,0,1,We share it equally,0,1,Other,Other 🦄
+369,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+370,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+371,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+372,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+373,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+375,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+377,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+378,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+379,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+381,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+382,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+383,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+384,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+385,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+386,0,0,0,1,0,0,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+387,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+389,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+390,0,0,0,0,0,0,0,1,I take care of all the housework,0,0,Other,Other 🦄
+391,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+392,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+394,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+395,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+397,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+398,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+400,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+403,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+404,0,0,1,0,0,0,0,0,I am not doing any housework,live_with_partner_only,2,...their partner,a partner 💞
+405,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+406,0,0,0,0,0,0,0,1,I do less housework than others,0,2,Other,Other 🦄
+407,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+408,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+409,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+410,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+411,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+412,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+414,0,0,1,0,0,0,1,0,We share it equally,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+415,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+416,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+417,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+418,0,0,0,1,0,0,0,0,I am not doing any housework,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+420,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+421,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+422,0,0,1,1,0,0,1,0,I take care of all the housework,0,0,Other,Other 🦄
+423,0,0,0,0,0,0,1,0,I take care of most of the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+424,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+425,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+426,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+427,0,1,0,0,0,0,0,0,I take care of all the housework,friends_only,0,...friends,Friends 🎲🏘🍷
+429,0,0,0,0,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+430,0,0,0,0,1,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+431,0,0,0,1,0,0,0,0,I take care of all the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+432,0,0,0,1,0,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+433,0,0,0,1,0,0,1,0,We share it equally,0,1,Other,Other 🦄
+434,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+435,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+436,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+437,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+438,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+439,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+440,0,0,1,0,0,1,1,0,We share it equally,0,1,Other,Other 🦄
+441,0,1,0,0,0,0,0,0,I take care of most of the housework,friends_only,0,...friends,Friends 🎲🏘🍷
+442,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+443,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+444,0,1,0,0,0,0,0,0,We share it equally,friends_only,1,...friends,Friends 🎲🏘🍷
+445,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+446,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+447,0,0,1,1,0,0,0,0,I do less housework than others,0,2,Other,Other 🦄
+448,0,0,1,0,0,0,1,0,I take care of most of the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+449,0,0,0,0,0,1,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+450,0,0,1,0,0,0,0,1,I take care of most of the housework,0,0,Other,Other 🦄
+451,0,0,0,1,1,0,0,0,I take care of most of the housework,siblings_parent_other_family,0,...other <br> family members,Other Family 👴🙋🙎
+453,0,0,1,1,0,0,0,0,I take care of most of the housework,0,0,Other,Other 🦄
+456,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+457,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+458,0,1,1,0,0,0,0,0,We share it equally,0,1,Other,Other 🦄
+459,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+460,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+461,0,0,1,0,0,0,1,0,0,live_with_partner_and_children_only,1,... partner  <br>and children,partner and children 🧒👭👶
+463,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
+464,0,0,1,0,0,0,1,0,I take care of all the housework,live_with_partner_and_children_only,0,... partner  <br>and children,partner and children 🧒👭👶
+465,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+466,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+467,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+468,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+469,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+470,0,0,0,1,0,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+471,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+472,0,0,1,0,0,0,0,0,I do less housework than others,live_with_partner_only,2,...their partner,a partner 💞
+473,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
+474,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+475,0,0,0,0,0,1,1,0,I take care of all the housework,0,0,Other,Other 🦄
+476,0,0,0,0,0,0,1,0,I take care of all the housework,live_with_children_only,0,.. alone <br> with children,children 👶🧸
+479,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+481,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+482,0,0,0,1,1,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+484,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+485,0,0,0,1,0,0,0,0,We share it equally,siblings_parent_other_family,1,...other <br> family members,Other Family 👴🙋🙎
+486,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+487,0,0,1,0,0,0,0,0,I do less housework than others,live_with_partner_only,2,...their partner,a partner 💞
+488,0,0,0,1,1,0,0,0,I do less housework than others,siblings_parent_other_family,2,...other <br> family members,Other Family 👴🙋🙎
+491,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+492,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+493,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
+494,0,0,1,0,0,0,0,0,We share it equally,live_with_partner_only,1,...their partner,a partner 💞
+496,0,0,1,0,0,0,0,0,I take care of all the housework,live_with_partner_only,0,...their partner,a partner 💞
+499,0,0,1,0,0,0,0,0,I take care of most of the housework,live_with_partner_only,0,...their partner,a partner 💞
