@@ -11,6 +11,16 @@ from testimonials_tab.testimonials import create_testimonials_tab
 # DATA
 survey_df = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/dummy_data_new.csv", index_col=0)
 new_data = pd.read_csv("https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/dummy_final_survey_real_postcode_answers.csv", index_col=0)
+all_reports_df = pd.read_csv(
+        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_all_reports.csv")
+safety_df = pd.read_csv(
+        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_safety_scale.csv")
+safety_change_df = pd.read_csv(
+        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_safety_change.csv")
+mental_health_df = pd.read_csv(
+        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_mental_health.csv")
+working_situation_df = pd.read_csv(
+        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_working_situation.csv")
 
 # geo data
 ## UK Postal codes
@@ -63,7 +73,7 @@ def create_layout():
 
             dcc.Tab(label='OVERVIEW', children=[
                 dbc.Container(
-                    create_overview_tab(survey_df, new_data, postal_code_df, countries_df, BIG_BUBBLE_SIZE, SMALL_BUBBLE_SIZE))
+                    create_overview_tab(survey_df, all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df, BIG_BUBBLE_SIZE, SMALL_BUBBLE_SIZE))
             ],
                 style=TAB_STYLE,
                 selected_style=SELECTED_STYLE),

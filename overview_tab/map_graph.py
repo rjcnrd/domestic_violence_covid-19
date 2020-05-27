@@ -151,27 +151,18 @@ def merge_local_internat_dataframe(survey_df, postal_code_df, countries_df, post
     return all_reports, safety, safety_change, mental_health, working_situation, not_in_map, uk_data, uk_data_county
 
 
-def map_graph(survey_df, postal_code_df, countries_df, big_bubble_size=2, small_bubble_size=0.01):
+def map_graph(all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df, big_bubble_size=2,
+              small_bubble_size=0.01):
     """
-    :param countries_df: latitude and longitude of the international countries
+    :param all_reports_df: a pandas df with the number of reports per location, and the details of the reports
+    :param safety_df: a pandas df with the number of reports of safety issues per location
+    :param safety_change_df: a pandas df with the number of reports of safety decrease per location
+    :param mental_health_df: a pandas df with the number of reports of low mental health per location
+    :param working_situation_df: a pandas df with the number of reports of people who had to stop to work per location
     :param big_bubble_size: size of the reference bubble in the map. For the first layer. The bigger the bubble_size, the smaller the bubble
     :param small_bubble_size: size of the reference bubble in the map. For the other layer. The bigger the bubble_size, the smaller the bubble
-    :param survey_df: dummy data
-    :param postal_code_df: latitude and longitude of areas in the UK (2 first letters of the postal code) 
     :return: map of UK with the number of aggressions
     """
-    # all_reports_df, safety_df, safety_change_df, mental_health_df, working_situation_df = merge_local_internat_dataframe(
-    # survey_df, postal_code_df, countries_df, map_threshold)
-    all_reports_df = pd.read_csv(
-        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_all_reports.csv")
-    safety_df = pd.read_csv(
-        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_safety_scale.csv")
-    safety_change_df = pd.read_csv(
-        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_safety_change.csv")
-    mental_health_df = pd.read_csv(
-        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_mental_health.csv")
-    working_situation_df = pd.read_csv(
-        "https://raw.githubusercontent.com/rjcnrd/domestic_violence_covid-19/master/data/data_map_working_situation.csv")
 
     # Text for hover
     all_reports_df["overall_text"] = np.where(all_reports_df["all_reports"] == 1,
