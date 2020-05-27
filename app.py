@@ -4,7 +4,6 @@ import dash_bootstrap_components as dbc
 
 from layout import create_layout
 
-#external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 external_stylesheets = [dbc.themes.LUX]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -35,7 +34,6 @@ app.index_string = '''
     </body>
 </html>
 '''
-
 
 app.layout = dbc.Container(
     create_layout()

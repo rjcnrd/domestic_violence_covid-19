@@ -151,12 +151,11 @@ def merge_local_internat_dataframe(survey_df, postal_code_df, countries_df, post
     return all_reports, safety, safety_change, mental_health, working_situation, not_in_map, uk_data, uk_data_county
 
 
-def map_graph(survey_df, postal_code_df, countries_df, map_threshold, big_bubble_size=2, small_bubble_size=0.01):
+def map_graph(survey_df, postal_code_df, countries_df, big_bubble_size=2, small_bubble_size=0.01):
     """
     :param countries_df: latitude and longitude of the international countries
     :param big_bubble_size: size of the reference bubble in the map. For the first layer. The bigger the bubble_size, the smaller the bubble
     :param small_bubble_size: size of the reference bubble in the map. For the other layer. The bigger the bubble_size, the smaller the bubble
-    :param map_threshold: a number giving the threshold after which we can plot a marker on the map
     :param survey_df: dummy data
     :param postal_code_df: latitude and longitude of areas in the UK (2 first letters of the postal code) 
     :return: map of UK with the number of aggressions
